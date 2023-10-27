@@ -15,6 +15,9 @@
     .gallery-image:hover {
         transform: scale(1.1);
     }
+    .cover{
+        object-fit: cover!important;
+    }
 </style>
 
 
@@ -26,13 +29,13 @@
         <div class="col-sm-3 mb-3">
             <div class="wow fadeInUp py-2" data-wow-delay="0.{{$loop->index + 1}}s">
                 <a href="{{ route('gallery.show', $photo) }}">
-                    <img class="gallery-image img-responsive wow" data-wow-duration="0.5s" data-wow-delay="0.2s" alt="{{ $photo->name }}"
+                    <img class="gallery-image img-responsive wow cover"  data-wow-duration="0.5s" data-wow-delay="0.2s" alt="{{ $photo->name }}"
                          src="{{ $photo->file }}" />
                 </a>
             </div>
         </div>
     @endforeach
-    
+
         {{$photos->links()}}
     </div>
 </div>

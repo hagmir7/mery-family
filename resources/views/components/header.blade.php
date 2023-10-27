@@ -31,7 +31,7 @@
                     <a class="nav-link" href="{{ route('gallery.index') }}">Gallery</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/docs/react/">Vidios</a>
+                    <a class="nav-link" href="/docs/react/">Videos</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/docs/react/">Stories</a>
