@@ -74,7 +74,7 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
-    @vite('resources/css/app.css')
+
     <link rel="alternate" type="application/rss+xml" href="https://www.lightgalleryjs.com/index.xml">
     <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script>
     <script type="text/javascript" async=""
