@@ -1,12 +1,11 @@
 @extends('../layout/layout')
 
-
 @section('content')
 
-<div class="container">
-    <div class="row d-flex justify-content-center">
-        <div class="col-md-5 card my-4 py-4 px-2" style="border-radius:15px">
-            <h1 class="h3 text-center">Se connecter</h1>
+<div class="container" style="margin-top: 120px">
+    <div class=" d-flex justify-content-center">
+        <div class="col-md-5 card my-4 py-4 px-2" style="border-radius: 15px">
+            <h1 class="h3 text-center">Log In</h1>
             <br>
             <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
             <a href="{{ route('login.google') }}">
@@ -14,10 +13,10 @@
                     <div class="google-icon-wrapper">
                         <img class="google-icon" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"/>
                     </div>
-                    <p class="btn-text"><b>Se connecter avec google</b></p>
+                    <p class="btn-text" style="margin-right: 60px;"><b>Log in with Google</b></p>
+
                 </div>
             </a>
-
 
             <hr>
             <form action="{{ route('login.store') }}" method="POST" >
@@ -25,17 +24,15 @@
                 @error('email')
                     <div class="p-1 alert alert-danger">{{ $message }}</div>
                 @enderror
-                <label for="email" style="margin-left:15px">E-mail</label>
-                <input type="email" name="email" id="email" value="{{ old('email') }}" class="form-control mt-2" placeholder="Email" style="width: 95%; margin-left:15px">
-                <label for="password" style="margin-left:15px">Mot de passe</label>
-                <input type="password" name="password" id="password" class="form-control mt-2" placeholder="enter votre mot de passe" style="width: 95%; margin-left:15px">
-                <button class="btn btn-pay mt-4 w-100">Se connecter</button>
-
-                <a href="{{ route('register') }}" class="btn btn-outline-primary mt-4 w-100">Créer un nouveau compte</a>
+                <label for="email" style="margin-left: 15px">Email</label>
+                <input type="email" name="email" id="email" value="{{ old('email') }}" class="form-control mt-2" placeholder="Email" style="width: 95%; margin-left: 15px">
+                <label for="password" style="margin-left: 15px">Password</label>
+                <input type="password" name="password" id="password" class="form-control mt-2" placeholder="Enter your password" style="width: 95%; margin-left: 15px">
+                <button class="btn btn-pay mt-4 w-100">Log In</button>
+                <a href="{{ route('register') }}" class="btn btn-outline-primary mt-4 w-100">Create a new account</a>
             </form>
         </div>
     </div>
 </div>
 
-
-@endSection
+@endsection

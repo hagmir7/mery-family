@@ -12,17 +12,17 @@
 
 
     <table id="mytable" class="table table-bordred table-striped">
-        <h4>Utilisateurs ({{ $users->count() }})</h4>
+        <h4>User ({{ $users->count() }})</h4>
         <div class="d-flex justify-content-between">
-            <p><a class="btn btn-outline-success btn-sm" href="{{ route('register') }}">+ Créer un utilisateur</a></p>
+            <p><a class="btn btn-primary btn-sm" href="{{ route('register') }}">+ Add User</a></p>
         </div>
         <thead>
 
             <tr>
                 <th>ID</th>
-                <th>Nom et prénom</th>
+                <th>Name</th>
                 <th>Email</th>
-                <th>Rôle</th>
+                <th>Role</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -42,6 +42,6 @@
         </tbody>
 
     </table>
-    {{ $users->links('vendor.pagination.bootstrap-5') }}
+    {{ $users->links() }}
 </div>
 @endsection

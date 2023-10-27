@@ -1,25 +1,28 @@
 <?php
 
-use App\Http\Controllers\CartController;
-use App\Http\Controllers\CartDetailController;
-use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\ChartController;
-use App\Http\Controllers\ContactController;
-use App\Http\Controllers\LoginController;
-use App\Http\Controllers\OrderController;
-use App\Http\Controllers\ProductController;
-use App\Http\Controllers\ProductImagesController;
-use App\Http\Controllers\UserController;
 use App\Models\Cart;
-use App\Models\Category;
-use App\Models\Contact;
-use App\Models\Order;
-use App\Models\Product;
-use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Carbon;
 use App\Models\User;
-use Illuminate\Support\Facades\Auth;
+use App\Models\Order;
+use App\Models\Contact;
+use App\Models\Product;
+use App\Models\Category;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CartController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\ChartController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\mediaController;
+use App\Http\Controllers\OrderController;
+use App\Http\Controllers\CommentController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CartDetailController;
+use App\Http\Controllers\ProductImagesController;
+use App\Models\Media;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,7 +41,15 @@ Route::get('/', function () {
 
 
 
+Route::prefix('gallery')->group(function () {
+    Route::get('', [mediaController::class, 'index'])->name('gallery.index');
+    Route::get('create', [mediaController::class, 'create'])->name('gallery.create');
+    Route::post('store', [mediaController::class, 'store'])->name('gallery.store');
+    Route::get('{id}', [mediaController::class, 'show'])->name('gallery.show');
+});
 
+Route::resource('comments', CommentController::class);
+Route::get('register', [UserController::class, 'register'])->name('register');
 
 
 Route::get('/chart', [ChartController::class, 'viewsChart'])->name('product.chart');
@@ -73,7 +84,7 @@ Route::get('/dashboard', function(){
         'users' => User::all()->count(),
         'orders' => Order::all(),
         'new_orders' => Order::where('status', null)->get(),
-        'products' => Product::all(),
+        'media' => Media::all(),
         'categories' => Category::all(),
         'users' => User::query()->count(),
     ]);
@@ -97,7 +108,6 @@ Route::prefix('/contact')->group(function(){
 
 Route::prefix('/user')->group(function(){
     Route::get('list', [UserController::class, 'list'])->name('user.list')->middleware('auth');
-    Route::get('register', [UserController::class, 'create'])->name('register');
     Route::post('store', [UserController::class, 'store'])->name('store_user');
     Route::get('delete/{user}', [UserController::class, 'delete'])->name('user.delete')->middleware('auth');
     Route::get('{user}', [UserController::class, 'show'])->name('user.show')->middleware('auth');
@@ -108,11 +118,11 @@ Route::prefix('/user')->group(function(){
 
 
 Route::prefix('/category')->group(function(){
-    Route::get('create', [CategoryController::class, 'create'])->name('category.create')->middleware('auth');
+    Route::get('create', [mediaController::class, 'create'])->name('category.create')->middleware('auth');
     Route::get('list', [CategoryController::class, 'list'])->name('category.list');
     Route::get('{category}', [CategoryController::class, 'category'])->name('category');
     Route::get('list/admin', [CategoryController::class, 'listAdmin'])->name('category.list.admin')->middleware('auth');
-    Route::post('store', [CategoryController::class, 'store'])->name('category.store')->middleware('auth');
+    Route::post('store', [mediaController::class, 'store'])->name('category.store')->middleware('auth');
     Route::get('update/{category}', [CategoryController::class, 'update'])->name('category.update')->middleware('auth');
     Route::post('update/store{category}', [CategoryController::class, 'updateStore'])->name('category.update.store')->middleware('auth');
     Route::get('delete/{category}', [CategoryController::class, 'delete'])->name('category.delete')->middleware('auth');
@@ -148,7 +158,9 @@ Route::prefix('login')->group(function(){
     Route::get('', [LoginController::class, 'login'])->name('login');
     Route::post('login', [LoginController::class, 'loginStore'])->name('login.store');
     Route::get('logout', [LoginController::class, 'logout'])->name('logout');
+
 });
+
 
 
 

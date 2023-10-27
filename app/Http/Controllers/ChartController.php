@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
+use App\Models\User;
+use App\Models\Media;
 use App\Models\Order;
 use App\Models\Product;
-use App\Models\User;
-use Carbon\Carbon;
-use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\JsonResponse;
 
 class ChartController extends Controller
 {
@@ -16,52 +17,53 @@ class ChartController extends Controller
 
     public function chart($model)
     {
+        // Définir la période de 7 jours à partir d'il y a 8 jours jusqu'à demain
         $seven_days_ago = Carbon::now()->subDays(8)->format('Y-m-d');
         $tomorrow = Carbon::now()->addDay()->format('Y-m-d');
-
-
-
-        $products = $model::whereBetween('created_at', [$seven_days_ago, $tomorrow])->get();
-        // dd($products);
-        // Create an associative array to store the view counts by day
-        $product_counts_by_day = [];
-        foreach ($products as $product) {
-            $created_at_day = Carbon::parse($product->created_at)->format('Y-m-d');
-            $product_counts_by_day[$created_at_day] = isset($product_counts_by_day[$created_at_day])
-                ? $product_counts_by_day[$created_at_day] + 1
-                : 1;
+    
+        // Récupérer les enregistrements du modèle dans la période spécifiée
+        $records = $model::whereBetween('created_at', [$seven_days_ago, $tomorrow])->get();
+    
+        // Initialiser un tableau associatif pour compter les enregistrements par jour
+        $counts_by_day = [];
+    
+        // Compter les enregistrements par jour
+        foreach ($records as $record) {
+            $created_at_day = Carbon::parse($record->created_at)->format('Y-m-d');
+            $counts_by_day[$created_at_day] = $counts_by_day[$created_at_day] ?? 0;
+            $counts_by_day[$created_at_day]++;
         }
-
-        // Create a list of tuples that contains the date and the view count for each day
-        $product_counts = [];
+    
+        // Créer une liste de tuples contenant la date et le nombre d'enregistrements par jour
+        $data = [];
         for ($i = 0; $i < 7; $i++) {
             $date = Carbon::now()->subDays($i)->format('Y-m-d');
-            $product_count = isset($product_counts_by_day[$date]) ? $product_counts_by_day[$date] : 0;
-            $product_counts[] = [$date, $product_count];
+            $count = $counts_by_day[$date] ?? 0;
+            $data[] = [$date, $count];
         }
-
-        $product_counts = array_reverse($product_counts);
-
-
-        return $product_counts;
-
+    
+        // Inverser l'ordre des données pour avoir les jours récents en premier
+        $data = array_reverse($data);
+    
+        return $data;
     }
-
-
-
-
-    public function viewsChart(Request $request){
-
-
-        
+    
+    public function viewsChart(Request $request)
+    {
+        // Appeler la méthode chart pour les modèles Media et User
+        $mediaData = $this->chart(Media::class);
+        $userData = $this->chart(User::class);
+    
+        // Préparer les données pour le renvoi dans la réponse JSON
         $context = [
-            'products' => $this->chart(Product::class),
-            'orders' => $this->chart(Order::class),
-            'users' => $this->chart(User::class),
+            'medias' => $mediaData,
+            'users' => $userData,
         ];
-
+    
+        // Retourner les données sous forme de réponse JSON
         return new JsonResponse($context);
     }
+    
 
 
 }

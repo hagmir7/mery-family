@@ -1,151 +1,65 @@
-
-<header>
-
-
-    <div class="header-main navbar navbar-expand-lg bg-white navbar-light sticky-top p-10 px-4 px-lg-5 border-bottom">
-
-      <div class="container">
-        {{-- Logo --}}
-        <a href="/" class="header-logo">
-          <img src="/assets2/images/logo/logo.svg" alt="mery logo" width="120" height="56">
-
+<header id="nav-header" class="navbar fixed-top navbar-expand-lg navbar-light ">
+    <div class="container-xxl">
+        <a class="navbar-brand monospace" href="">
+            <img class="img-logo" src="{{ asset('img/SAID-logo.png') }}" alt=""
+                style="width: 80px; height: 80px; margin-top: -20px">
         </a>
 
-        {{-- Search --}}
-        <div class="header-search-container">
-            <form action="{{ route('product.list') }}" method="GET">
-                <input type="search" name="search" class="search-field" placeholder="Entrez le nom de votre produit...">
-                <button class="search-btn">
-                  <ion-icon name="search-outline" class="color-primary"></ion-icon>
-                </button>
-            </form>
-        </div>
-
-        {{-- lang and curency --}}
-
-
-      </div>
-
-    </div>
-
-
-
-    <div class="header-top bg-white navbar-light sticky-top p-0 px-4 px-lg-5 ">
-
-      <div class="container">
-
-        <ul class="header-social-container">
-
-          <li>
-            <a href="https://www.facebook.com/meryshop" class="social-link" target="_blank">
-              <ion-icon name="logo-facebook"></ion-icon>
-            </a>
-          </li>
-
-          <li>
-            <a href="https://www.twitter.com/meryshop" class="social-link" target="_blank">
-              <ion-icon name="logo-twitter"></ion-icon>
-            </a>
-          </li>
-
-          <li>
-            <a href="https://www.instagram.com/meryshop" class="social-link" target="_blank">
-              <ion-icon name="logo-instagram"></ion-icon>
-            </a>
-          </li>
-
-          <li>
-            <a href="https://www.linkedin.com/meryshop" class="social-link" target="_blank">
-              <ion-icon name="logo-linkedin"></ion-icon>
-            </a>
-          </li>
-
-        </ul>
-        <nav class="desktop-navigation-menu ">
-
-          <div class="container">
-
-            <ul class="desktop-menu-category-list">
-
-              <li class="menu-category">
-                <a href="/" class="menu-title nav-item nav-link active">Accueil</a>
-              </li>
-              <li class="menu-category">
-                <a href="/product/list" class="menu-title nav-item nav-link active">Produit</a>
-              </li>
-
-              <li class="menu-category">
-                <a href="/category/list" class="menu-title">Catégories</a>
-
-                <ul class="dropdown-list" style="width:auto;">
-
-                 @foreach ($categories as $category)
-                 <li class="dropdown-item">
-                  <a href="{{ route('category', $category->id ) }}">{{ $category->name }}</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><svg
+                class="navbar-toggler-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                fill="currentcolor" viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                    d="M2.5 11.5A.5.5.0 013 11h10a.5.5.0 010 1H3a.5.5.0 01-.5-.5zm0-4A.5.5.0 013 7h10a.5.5.0 010 1H3a.5.5.0 01-.5-.5zm0-4A.5.5.0 013 3h10a.5.5.0 010 1H3a.5.5.0 01-.5-.5z">
+                </path>
+            </svg>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Home</a>
                 </li>
-                 @endforeach
-                </ul>
-
-              <li class="menu-category">
-                <a href="/contact" class="menu-title nav-item nav-link active">Contactez-nous</a>
-              </li>
-              </li>
+                @if(auth()->user()?->role === 1)
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('dashboard') }}">Dashboard</a>
+                    </li>
+                @endif
+                <li class="nav-item">
+                    <a class="nav-link" href="/demos/thumbnails/">Abous Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('gallery.index') }}">Gallery</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/docs/react/">Vidios</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/docs/react/">Stories</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/license/">Family History</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/license/">Quotes</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('contact.create') }}">Contact</a>
+                </li>
+                @auth
+                <li class="nav-item nav-item-social">
+                    <a href="{{ route('logout') }}">
+                        <i class="bi bi-box-arrow-in-right nav-link" style="font-size: 28px; margin-top:-8px"></i>
+                    </a>
+                </li>
+                @else
+                <li class="nav-item nav-item-social">
+                    <a href="{{ route('login') }}">
+                        <i class="bi bi-box-arrow-in-right nav-link" style="font-size: 28px; margin-top:-8px"></i>
+                    </a>
+                </li>
+                @endauth
 
             </ul>
-
-
-          </div>
-        </nav>
-
-
-        @auth
-        <div class="header-user-actions">
-            <div class="dropdown action-btn fs-4">
-                <button class="" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <ion-icon name="person-outline" role="img" class="md hydrated" aria-label="person outline"></ion-icon>
-                </button>
-          {{-- <button class="action-btn fs-4">
-            <ion-icon name="heart-outline" role="img" class="md hydrated" aria-label="heart outline"></ion-icon>
-            <span class="count">0</span>
-          </button>
-           --}}
-           <ul class="dropdown-menu">
-            <li><a class="btn mx-1" href="{{ route('user.update', auth()->user()->id ) }}">Profile</a></li>
-            @if(auth()->user()->role === 1)
-                    <li><a class="btn mx-1" href="{{ route('dashboard') }}">Dashboard</a></li>
-            @endif
-            <li><a class="btn mx-1" href="{{ route('logout') }}" style="font-size: 15px">Se déconnecter</a></li>
-          </ul>
         </div>
-          <a href="{{ route('cart.list') }}" class="action-btn fs-4">
-            <ion-icon name="bag-handle-outline" role="img" class="md hydrated" aria-label="bag handle outline"></ion-icon>
-            <span class="count" id="cart-items">{{ auth()->user()->cart->items->count()}}</span>
-          </a>
-        </div>
-        @else
-        <div class="header-user-actions">
-            <div class="dropdown action-btn fs-4">
-            <button class="" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-              <ion-icon name="person-outline" role="img" class="md hydrated" aria-label="person outline"></ion-icon>
-            </button>
-            <ul class="dropdown-menu">
-              <li><a  class="btn mx-1" href="{{ route('login')}}">Se connecter</a></li>
-              <li><a  class="btn mx-1" href="{{ route('register') }}">Inscription</a></li>
-            </ul>
-          </div>
-          {{-- <button class="action-btn fs-4">
-            <ion-icon name="heart-outline" role="img" class="md hydrated" aria-label="heart outline"></ion-icon>
-            <span class="count">0</span>
-          </button> --}}
-          <a href="{{ route('login') }}" class="action-btn fs-4">
-            <ion-icon name="bag-handle-outline" role="img" class="md hydrated" aria-label="bag handle outline"></ion-icon>
-            {{-- <span class="count">0</span> --}}
-          </a>
-        </div>
-        @endauth
-
-
-
-      </div>
     </div>
-  </header>
+</header>

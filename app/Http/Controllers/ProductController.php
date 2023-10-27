@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Color;
+use App\Models\Media;
 use App\Models\Product;
 use App\Models\ProductImages;
 use App\Models\Size;
@@ -14,16 +15,9 @@ class ProductController extends Controller
 {
 
 
-    public function list(Request $request){
-        if(isset($request->search)){
-            $products  = Product::where('name', 'LIKE', '%' . $request->search . '%')->paginate(30);
-        }else{
-            $products  = Product::paginate(30);
-        }
-
-        return view('product.list', [
-            'products' => $products
-        ]);
+    public function list(){
+       
+//
     }
 
     public function listAdmin(Request $request){

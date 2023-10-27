@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Media;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -11,7 +12,7 @@ class CategoryController extends Controller
 {
     public function list(){
         return view('category.list', [
-            'categories' => Category::paginate(12)
+            'categories' => Media::paginate(12)
         ]);
 
     }
@@ -19,9 +20,9 @@ class CategoryController extends Controller
     public function listAdmin(Request $request)
     {
         if (isset($request->search)) {
-            $categories  = Category::where('name', 'LIKE', '%' . $request->search . '%')->paginate(30);
+            $categories  = Media::where('name', 'LIKE', '%' . $request->search . '%')->paginate(30);
         } else {
-            $categories  = Category::paginate(30);
+            $categories  = Media::paginate(30);
         }
         return view('category.list-admin', [
             'categories' => $categories
@@ -43,7 +44,7 @@ class CategoryController extends Controller
         $path = $file->store('public/category');
         $url = Storage::url($path);
 
-        Category::create([
+        Media::create([
             'name' => $request->input('name'),
             'image' => $url
         ]);
@@ -53,14 +54,14 @@ class CategoryController extends Controller
 
 
 
-    public function update(Category $category){
+    public function update(Media $category){
         return view('category.update', [
             'category' => $category
         ]);
     }
 
 
-    public function updateStore(Request $request, Category $category){
+    public function updateStore(Request $request, Media $category){
 
         $data = ['name' => $request->input('name')];
 
@@ -73,12 +74,12 @@ class CategoryController extends Controller
         return redirect()->route('category.list.admin')->with(['message' => "Catégorie mise à jour avec succès."]);
     }
 
-    public function delete(Category $category){
+    public function delete(Media $category){
         $category->delete();
         return redirect()->route('category.list.admin')->with(['message' => "Catégorie supprimée avec succès."]);
     }
 
-    public function category(Category $category){
+    public function category(Media $category){
         return view('category.category', [
             "products" => Product::where('category', $category->id)->paginate(13)
         ]);
@@ -87,7 +88,7 @@ class CategoryController extends Controller
 
     public function deleteMultiple(Request $request){
         $categories = $request->input('category', []);
-        Category::whereIn('id', $categories)->delete();
+        Media::whereIn('id', $categories)->delete();
         return response()->json(['message' => 'Les Catégories ont été supprimés avec succès!']);
 
     }

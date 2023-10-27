@@ -8,61 +8,65 @@
         <ul class="footer-nav-list">
 
           <li class="footer-nav-item">
-            <h2 class="nav-title">Catégories populaires</h2>
+            <h2 class="nav-title">Important links</h2>
           </li>
-          @foreach ($categories as $category)
+
           <li class="footer-nav-item">
-            <a href="{{ route('category', $category->id ) }}" class="footer-nav-link">{{ $category->name }}</a>
+            <a href="/" class="footer-nav-link">Home</a>
           </li>
-          @endforeach
+
+          <li class="footer-nav-item">
+            <a href="{{ route('product.list') }}" class="footer-nav-link">About Us</a>
+          </li>
+
+          <li class="footer-nav-item">
+            <a href="{{ route('gallery.index') }}" class="footer-nav-link">Gallery</a>
+          </li>
+
+          <li class="footer-nav-item">
+            <a href="{{ route('gallery.index') }}" class="footer-nav-link">Vidios</a>
+          </li>
+
+          <li class="footer-nav-item">
+            <a href="{{ route('gallery.index') }}" class="footer-nav-link">Family history</a>
+          </li>
+
+          <li class="footer-nav-item">
+            <a href="{{ route('gallery.index') }}" class="footer-nav-link">Stories</a>
+          </li>
+
         </ul>
 
         <ul class="footer-nav-list">
 
-          <li class="footer-nav-item">
-            <h2 class="nav-title">Liens importants</h2>
-          </li>
+            <li class="footer-nav-item">
+                <a href="{{ route('contact.create') }}" class="footer-nav-link">Contact Us</a>
+              </li>
 
-          <li class="footer-nav-item">
-            <a href="/" class="footer-nav-link">Accueil</a>
-          </li>
+            @auth
 
-          <li class="footer-nav-item">
-            <a href="{{ route('product.list') }}" class="footer-nav-link">Nouveaux produits</a>
-          </li>
+            @if(auth()->user()->role === 1)
+                <li class="footer-nav-item">
+                    <a href="{{ route('dashboard') }}" class="footer-nav-link">Dashboard</a>
+                </li>
+            @endif
 
-          <li class="footer-nav-item">
-            <a href="{{ route('category.list') }}" class="footer-nav-link">Catégories</a>
-          </li>
+                <li class="footer-nav-item">
+                    <a href="{{ route('logout') }}" class="footer-nav-link">Lougout</a>
+                </li>
 
-          <li class="footer-nav-item">
-            <a href="{{ route('contact.create') }}" class="footer-nav-link">Contactez-nous</a>
-          </li>
+            @else
 
-          @auth
-          @if(auth()->user()->role === 1)
-          <li class="footer-nav-item">
-            <a href="{{ route('dashboard') }}" class="footer-nav-link">Dashboard</a>
-          </li>
-          @endif
-          <li class="footer-nav-item">
-            <a href="{{ route('logout') }}" class="footer-nav-link">Deconnexion</a>
-          </li>
-          @else
-          <li class="footer-nav-item">
-            <a href="{{ route('login') }}" class="footer-nav-link">Connexion</a>
-          </li>
+                <li class="footer-nav-item">
+                    <a href="{{ route('login') }}" class="footer-nav-link">Login</a>
+                </li>
 
-          <li class="footer-nav-item">
-            <a href="{{ route('register') }}" class="footer-nav-link">Inscrire</a>
-          </li>
-          @endauth
+                <li class="footer-nav-item">
+                    <a href="{{ route('register') }}" class="footer-nav-link">Register</a>
+                </li>
 
-
+            @endauth
         </ul>
-
-
-
 
         <ul class="footer-nav-list">
 
@@ -94,7 +98,7 @@
               <ion-icon name="mail-outline" role="img" class="md hydrated" aria-label="mail outline"></ion-icon>
             </div>
 
-            <a href="mailto:meyrShop@freesad.com" class="footer-nav-link">meyrShop@freesad.com</a>
+            <a href="mailto:meyrShop@freesad.com" class="footer-nav-link">meyr@gmail.com</a>
           </li>
 
         </ul>
@@ -146,7 +150,7 @@
       <div class="container">
 
         <p class="copyright">
-          Copyright © <a href="/">MeryShop</a> all rights reserved.
+          Copyright © <a href="/">SAID</a> all rights reserved.
         </p>
 
       </div>

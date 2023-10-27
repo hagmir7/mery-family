@@ -17,9 +17,9 @@
                 @endif
                 <form action="{{ route('category.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
-                    <label for="name">Nom</label>
-                    <input type="text" name="name" value="{{@old('name')}}" class="form-control mb-2" placeholder="Nom du produit...">
-                    @error('name') <span class="text-danger">{{$message}}</span> <br>@enderror
+                    <label for="description">Nom</label>
+                    <input type="text" name="description" value="{{@old('description')}}" class="form-control mb-2" placeholder="Nom du produit...">
+                    @error('description') <span class="text-danger">{{$message}}</span> <br>@enderror
                     <label for="images">Images</label>
                     <input type="file" accept="image/*" class="form-control mb-2" name="image">
                     @error('images') <span class="text-danger">{{$message}}</span> <br>@enderror

@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>MeryShop Dashoboard</title>
+    <title> Dashoboard</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -21,6 +21,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <link rel="shortcut icon" href="/assets2/images/logo/mery.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+
     {{-- laravel csrf token --}}
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <!--<title>Dashboard Sidebar Menu</title>-->
@@ -34,7 +36,7 @@
                 </span>
                 <a  href="{{ route('dashboard') }}" style="text-decoration: none;">
                 <div class="text logo-text">
-                    <span class="name" >Mery Shop</span>
+                    <span class="name" ><img src="{{ asset('img/SAID-logo.png') }} " alt="" style="width: 80px; height: 80px; margin-top:-1px"></span>
                 </div>
             </div>
           </a>
@@ -53,41 +55,34 @@
                 <ul class="menu-links">
                     <li class="nav-link">
                         <a href="{{ route('dashboard') }}">
-                            <i class='bx bx-home-alt icon' ></i>
-                            <span class="text nav-text"> Tableau de bord</span>
+                            <i class="bx bx-home icon" style="color: black;"></i>
+                            <span class="text nav-text"> Dashboard</span>
                         </a>
                     </li>
 
-                    <li class="nav-link">
+                    {{-- <li class="nav-link">
                         <a href="{{ route("product.list.admin") }}">
                           <i class='bx bx-list-plus icon'></i>
                             <span class="text nav-text">Produits</span>
                         </a>
-                    </li>
+                    </li> --}}
 
                     <li class="nav-link">
                         <a href="{{ route("category.list.admin") }}">
-                          <i class='bx bx-category icon'></i>
-                            <span class="text nav-text">Categories</span>
-                        </a>
-                    </li>
-
-                    <li class="nav-link">
-                        <a href="{{ route('order.list') }}">
-                          <i class='bx bx-cart icon'></i>
-                            <span class="text nav-text">commande</span>
+                            <i class="fa-regular fa-images fa-xl icon" style="color: black;"></i>
+                            <span class="text nav-text">Gallery</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
                         <a href="{{ route('user.list') }}">
-                          <i class='bx bx-user icon'></i>
-                            <span class="text nav-text">Utilisateurs</span>
+                          <i class='bx bx-user icon' style="color: black"></i>
+                            <span class="text nav-text">User</span>
                         </a>
                     </li>
                     <li class="nav-link">
                         <a href="{{ route('contact.list') }}">
-                          <i class='bx bx-chat icon'></i>
+                          <i class='bx bx-chat icon' style="color: black"></i>
                             <span class="text nav-text">Contacts</span>
                         </a>
                     </li>
@@ -96,9 +91,9 @@
             </div>
 
             <div class="bottom-content">
-                <li class="">
+                <li class=""  style="margin-top: -80px">
                     <a href="{{ route('logout') }}">
-                        <i class='bx bx-log-out icon' ></i>
+                        <i class='bx bx-log-out icon' style="color: black" ></i>
                         <span class="text nav-text">Se déconnecter</span>
                     </a>
                 </li>
