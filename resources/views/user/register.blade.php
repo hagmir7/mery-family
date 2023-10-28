@@ -16,7 +16,7 @@
                         <img class="google-icon"
                             src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" />
                     </div>
-                    <p class="btn-text" style="margin-right: 60px;"><b>Log in with Google</b></p>
+                    <p class="btn-text"><b>Log in with Google</b></p>
 
                 </div>
             </a>
