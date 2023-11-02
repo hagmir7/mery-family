@@ -49,24 +49,37 @@
                         style="visibility: visible; animation-delay: 0.1s; animation-name: bounceInUp;">
                         <p class="mb-4">
                         Said spent his childhood in Morocco, where he forged his earliest memories, traditions, and values. It was in this vibrant and culturally rich environment that he learned about the importance of family, community, and the enduring heritage of Morocco.
-                        <br />
-                        <br />
-                        Later in life, Said embarked on a new chapter, relocating to the United States. In this diverse and dynamic country, he embraced new opportunities, forged connections, and contributed to the rich tapestry of American society. His story serves as a testament to the power of cultural exchange and the ability to bridge cultures and generations.
-                        <br />
                         <br>
-                        Tragically, Said's journey reached its conclusion in July 2021, and he was laid to rest in Morocco, next to his father. His legacy lives on through this project, a digital memorial that honors his life and allows others to explore the rich tapestry of his experiences.
-                        
+                        <br>
+                        Later in life, Said embarked on a new chapter, relocating to the United States. In this diverse and dynamic country, he embraced new opportunities, forged connections, and contributed to the rich tapestry of American society. His story serves as a testament to the power of cultural exchange and the ability to bridge cultures and generations.
                         </p>
                     </div>
                     <div class="col-lg-4 wow bounceInUp" data-wow-delay="0.3s" style="visibility: visible; animation-delay: 0.3s; animation-name: bounceInUp;">
-                        <img src="img/said_13.jpeg" class="img-fluid rounded" alt="">
+                        <img src="img/said_14.jpeg" class="img-fluid rounded" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="container-fluid py-6">
+            <div class="container">
+                <div class="row g-5 align-items-center">
+                    <div class="col-lg-5 wow bounceInUp" data-wow-delay="0.1s"
+                        style="visibility: visible; animation-delay: 0.1s; animation-name: bounceInUp;">
+                        <img src="img/mortSaid.jpeg" class="img-fluid rounded w-75 " alt="" >
+                    </div>
+                    <div class="col-lg-7 wow bounceInUp" data-wow-delay="0.3s" style="visibility: visible; animation-delay: 0.3s; animation-name: bounceInUp;">
+                        <p class="mb-4 me-5">
+                            Tragically, Said's journey reached its conclusion in July 2021, and he was laid to rest in Morocco, next to his father. His legacy lives on through this project, a digital memorial that honors his life and allows others to explore the rich tapestry of his experiences.
+                        </p>
                     </div>
                 </div>
             </div>
         </div>
 
         <!-- Team Start -->
-        <div class="container-fluid team py-6">
+        {{-- <div class="container-fluid team py-6">
             <div class="container">
                 <div class="text-center wow bounceInUp" data-wow-delay="0.1s"
                     style="visibility: visible; animation-delay: 0.1s; animation-name: bounceInUp;">
@@ -108,7 +121,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
         <!-- Team End -->
 
         <!-- Back to Top -->
