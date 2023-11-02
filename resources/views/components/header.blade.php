@@ -19,14 +19,11 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/">Home</a>
                 </li>
-                @if(auth()->user()?->role === 1)
+                @if (auth()->user()?->role === 1)
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('dashboard') }}">Dashboard</a>
                     </li>
                 @endif
-                <li class="nav-item">
-                    <a class="nav-link" href="{{route('about.index')}}">Abous Us</a>
-                </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('gallery.index') }}">Gallery</a>
                 </li>
@@ -42,21 +39,20 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/license/">Quotes</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('contact.create') }}">Contact</a>
-                </li>
                 @auth
-                <li class="nav-item nav-item-social">
-                    <a href="{{ route('logout') }}">
-                        <i class="bi bi-box-arrow-in-right nav-link" style="font-size: 28px; margin-top:-8px"></i>
-                    </a>
-                </li>
+                    <li class="nav-item nav-item-social">
+                        <a href="{{ route('logout') }}">
+                            <i class="bi bi-box-arrow-in-right nav-link" style="font-size: 28px; margin-top:-8px"></i>
+                        </a>
+                    </li>
                 @else
-                <li class="nav-item nav-item-social">
-                    <a href="{{ route('login') }}">
-                        <i class="bi bi-box-arrow-in-right nav-link" style="font-size: 28px; margin-top:-8px"></i>
-                    </a>
-                </li>
+                    <li class=" nav-item-social">
+                        <div class="mt-4">
+                            <a class="btn btn-info text-white btn-sm" href="{{ route('login') }}">
+                                Join Us
+                            </a>
+                        </div>
+                    </li>
                 @endauth
 
             </ul>
