@@ -2,18 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Comment;
 use Illuminate\Http\Request;
 
-class CommentController extends Controller
+class AboutController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $comments = Comment::paginate(2);
-        return view('media.show', compact('comments'));
+        return view('about');
     }
 
     /**
@@ -29,23 +27,7 @@ class CommentController extends Controller
      */
     public function store(Request $request)
     {
-        // Validate the incoming data
-        $request->validate([
-            'comment' => 'required|string',
-            'media_id' => 'required|exists:media,id',
-        ]);
-
-        // Create a new comment
-        if (auth()->check()) {
-            Comment::create([
-                'comment' => $request->input('comment'),
-                'media_id' => $request->input('media_id'),
-                'user_id' => auth()->user()->id,
-            ]);
-        } else {
-            return redirect()->route('login');
-        }
-        return redirect()->back()->with('success', 'Comment added successfully');
+        //
     }
 
     /**

@@ -25,7 +25,7 @@
                     </li>
                 @endif
                 <li class="nav-item">
-                    <a class="nav-link" href="/demos/thumbnails/">Abous Us</a>
+                    <a class="nav-link" href="{{route('about.index')}}">Abous Us</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('gallery.index') }}">Gallery</a>

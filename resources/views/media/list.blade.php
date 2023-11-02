@@ -7,11 +7,6 @@
         transition: transform 0.3s ease-in-out;
         width: 100%;
     }
-
-    .gallery-image:hover {
-        transform: scale(1.1);
-    }
-
     .cover {
         object-fit: cover !important;
     }
@@ -53,3 +48,4 @@
     });
 </script>
 @endsection
+

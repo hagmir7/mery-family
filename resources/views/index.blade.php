@@ -7,12 +7,181 @@
 
     }
 
-
-    /** Below CSS is completely optional **/
-
     .gallery-item {
         width: 200px;
         padding: 5px;
+    }
+
+
+    * {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+
+    ul li {
+        margin: 0 0 24px;
+    }
+
+    .the-arrow {
+        width: 1px;
+        transition: all 0.2s;
+    }
+
+    .the-arrow.-left {
+        position: absolute;
+        top: 60%;
+        left: 0;
+    }
+
+    .the-arrow.-left>.shaft {
+        width: 0;
+        background-color: #4c4c4c;
+    }
+
+    .the-arrow.-left>.shaft:before,
+    .the-arrow.-left>.shaft:after {
+        width: 0;
+        background-color: #4c4c4c;
+    }
+
+    .the-arrow.-left>.shaft:before {
+        transform: rotate(0);
+    }
+
+    .the-arrow.-left>.shaft:after {
+        transform: rotate(0);
+    }
+
+    .the-arrow.-right {
+        top: 3px;
+    }
+
+    .the-arrow.-right>.shaft {
+        width: 1px;
+        transition-delay: 0.2s;
+    }
+
+    .the-arrow.-right>.shaft:before,
+    .the-arrow.-right>.shaft:after {
+        width: 8px;
+        transition-delay: 0.3s;
+        transition: all 0.5s;
+    }
+
+    .the-arrow.-right>.shaft:before {
+        transform: rotate(40deg);
+    }
+
+    .the-arrow.-right>.shaft:after {
+        transform: rotate(-40deg);
+    }
+
+    .the-arrow>.shaft {
+        background-color: #4c4c4c;
+        display: block;
+        height: 1px;
+        position: relative;
+        transition: all 0.2s;
+        transition-delay: 0;
+        will-change: transform;
+    }
+
+    .the-arrow>.shaft:before,
+    .the-arrow>.shaft:after {
+        background-color: #4c4c4c;
+        content: "";
+        display: block;
+        height: 1px;
+        position: absolute;
+        top: 0;
+        right: 0;
+        transition: all 0.2s;
+        transition-delay: 0;
+    }
+
+    .the-arrow>.shaft:before {
+        transform-origin: top right;
+    }
+
+    .the-arrow>.shaft:after {
+        transform-origin: bottom right;
+    }
+
+    .animated-arrow {
+        display: inline-block;
+        color: #4c4c4c;
+        font-size: 1.25em;
+        font-style: italic;
+        text-decoration: none;
+        position: relative;
+        transition: all 0.2s;
+    }
+
+    .animated-arrow:hover {
+        color: #808080;
+    }
+
+    .animated-arrow:hover>.the-arrow.-left>.shaft {
+        width: 64px;
+        transition-delay: 0.1s;
+        background-color: #808080;
+    }
+
+    .animated-arrow:hover>.the-arrow.-left>.shaft:before,
+    .animated-arrow:hover>.the-arrow.-left>.shaft:after {
+        width: 8px;
+        transition-delay: 0.1s;
+        background-color: #808080;
+    }
+
+    .animated-arrow:hover>.the-arrow.-left>.shaft:before {
+        transform: rotate(40deg);
+    }
+
+    .animated-arrow:hover>.the-arrow.-left>.shaft:after {
+        transform: rotate(-40deg);
+    }
+
+    .animated-arrow:hover>.main {
+        transform: translateX(17px);
+        transform: translateX(80px);
+    }
+
+    .animated-arrow:hover>.main>.the-arrow.-right>.shaft {
+        width: 0;
+        transform: translateX(200%);
+        transition-delay: 0;
+    }
+
+    .animated-arrow:hover>.main>.the-arrow.-right>.shaft:before,
+    .animated-arrow:hover>.main>.the-arrow.-right>.shaft:after {
+        width: 0;
+        transition-delay: 0;
+        transition: all 0.1s;
+    }
+
+    .animated-arrow:hover>.main>.the-arrow.-right>.shaft:before {
+        transform: rotate(0);
+    }
+
+    .animated-arrow:hover>.main>.the-arrow.-right>.shaft:after {
+        transform: rotate(0);
+    }
+
+    .animated-arrow>.main {
+        display: flex;
+        align-items: center;
+        transition: all 0.2s;
+    }
+
+    .animated-arrow>.main>.text {
+        margin: 0 16px 0 0;
+        line-height: 1;
+    }
+
+    .animated-arrow>.main>.the-arrow {
+        position: relative;
     }
 </style>
 
@@ -33,25 +202,40 @@
         <div class="row">
             <div class="col-lg-6 align-self-center">
                 <div class="mp-about-section section pt-150 pb-150">
+                    <div class="mp-section-title" data-name="Said" style="margin-left: 18px">
+                        <h1>About us</h1>
+                    </div>
 
                     <div class="container">
-                        <div class="row">
-
-                            <div class="mp-section-title text-center col-xs-12 mb-60" data-name="Said">
-                                <h1>About us</h1>
-                            </div>
-
-                            <div class="mb-about-content text-center col-md-12 col-md-offset-1 col-xs-12 ">
+                        <div class="row">                           
+                            <div class="mb-about-content col-xs-12 ">
                                 <p style="color: black">This site is intended to be a place of family history remembrance.
                                     This site is
-                                    accessible to those who are curious about history and want to learn more and have a
+                                    accessible to those who are curious about history and want to
+                                    learn more and have a
                                     personal experience of Moroccan culture, business, etc., through the history of the
                                     <strong>Seghrouchni Idrissi</strong> family. <br> Especially <strong>Said
                                         Seghrouchni Idrissi</strong> , who lived between Morocco and America
                                 </p>
                             </div>
-
                         </div>
+                        <ul>
+                            <li class="m-5">
+                                <a class='animated-arrow' href='{{route('about.index')}}'>
+                                    <span class='the-arrow -left'>
+                                        <span class='shaft'></span>
+                                    </span>
+                                    <span class='main'>
+                                        <span class='text'>
+                                            Read More
+                                        </span>
+                                        <span class='the-arrow -right'>
+                                            <span class='shaft'></span>
+                                        </span>
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
                     </div>
 
                 </div>

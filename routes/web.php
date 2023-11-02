@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AboutController;
 use App\Models\Cart;
 use App\Models\User;
 use App\Models\Order;
@@ -48,6 +49,8 @@ Route::prefix('gallery')->group(function () {
     Route::get('{id}', [mediaController::class, 'show'])->name('gallery.show');
 });
 
+Route::resource('/about',AboutController::class);
+
 Route::resource('comments', CommentController::class);
 Route::get('register', [UserController::class, 'register'])->name('register');
 
@@ -69,7 +72,7 @@ Route::prefix('/product')->group(function () {
     Route::post('delete', [ProductController::class, 'deleteMultiple'])->name('product.delete.multiple')->middleware('auth');
     Route::get('delete/{product}', [ProductController::class, 'delete'])->name('product.delete')->middleware('auth');
 
-});
+})->middleware('auth');
 
 
 Route::prefix('/image')->group(function(){
