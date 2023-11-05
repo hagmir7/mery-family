@@ -83,11 +83,17 @@
                             <p class="small mb-0 ms-2" style="font-size: 10px">{{ $comment->user->first_name }}
                                 {{ $comment->user->last_name }}</p>
                         </div>
-                        @if(auth()->user()?->role === 1)
-                            <div class="d-flex align-items-center">
-                                <i class="bi bi-trash3" style="color: red"></i>
-                            </div>
-                        @endif
+                
+                    @if (auth()->user() && (auth()->user()->id === $comment->user_id || auth()->user()->role === 1))
+                    <div class="d-flex align-items-center">
+                        <form method="post"
+                            action="{{ route('comments.destroy', ['comment' => $comment->id]) }}">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit"><i class="bi bi-trash3" style="color: red"></i></button>
+                        </form>
+                    </div>
+                @endif
                     </div>
                     <h5 style="font-size: 15px" class="m-3">{{ $comment->comment }}</h5>
                 </div>

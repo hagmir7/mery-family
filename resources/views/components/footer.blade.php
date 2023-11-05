@@ -32,7 +32,7 @@
           </li>
 
           <li class="footer-nav-item">
-            <a href="{{ route('gallery.index') }}" class="footer-nav-link">Stories</a>
+            <a href="{{route('storie.index')}}" class="footer-nav-link">Stories</a>
           </li>
 
         </ul>
@@ -45,11 +45,15 @@
 
             @auth
 
-            @if(auth()->user()->role === 1)
+                @if(auth()->user()->role === 1)
+                    <li class="footer-nav-item">
+                        <a href="{{ route('dashboard') }}" class="footer-nav-link">Dashboard</a>
+                    </li>
+                @endif
+                
                 <li class="footer-nav-item">
-                    <a href="{{ route('dashboard') }}" class="footer-nav-link">Dashboard</a>
+                    <a href="{{ route('user.update', auth()->user()->id) }}" class="footer-nav-link">Profile</a>
                 </li>
-            @endif
 
                 <li class="footer-nav-item">
                     <a href="{{ route('logout') }}" class="footer-nav-link">Lougout</a>

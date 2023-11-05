@@ -297,28 +297,11 @@
                 max-width: 90px;
             }
         </style>
-        <link rel="stylesheet" id="lsvr-lineago-demo-style-css"
-            href="https://preview.lsvr.sk/lineago/wp-content/themes/lineago-demo/style.css?ver=1.0.0" type="text/css"
-            media="all">
-        <link rel="stylesheet" id="lsvr-lineago-google-fonts-css"
-            href="https://fonts.googleapis.com/css2?family=Playfair+Display%3Awght%40300%3B400%3B500%3B600%3B700%3B800&amp;display=swap&amp;ver=6.0.6"
-            type="text/css" media="all">
+     
         <link rel="stylesheet" id="lsvr-lineago-color-scheme-css"
             href="https://preview.lsvr.sk/lineago/wp-content/themes/lineago/assets/css/color-schemes/default.css?ver=1.0.4"
             type="text/css" media="all">
-        <link rel="https://api.w.org/" href="https://preview.lsvr.sk/lineago/wp-json/">
-        <link rel="alternate" type="application/json" href="https://preview.lsvr.sk/lineago/wp-json/wp/v2/pages/296">
-        <link rel="EditURI" type="application/rsd+xml" title="RSD"
-            href="https://preview.lsvr.sk/lineago/xmlrpc.php?rsd">
-        <link rel="wlwmanifest" type="application/wlwmanifest+xml"
-            href="https://preview.lsvr.sk/lineago/wp-includes/wlwmanifest.xml">
-        <meta name="generator" content="WordPress 6.0.6">
-        <link rel="canonical" href="https://preview.lsvr.sk/lineago/family-history/">
-        <link rel="shortlink" href="https://preview.lsvr.sk/lineago/?p=296">
-        <link rel="alternate" type="application/json+oembed"
-            href="https://preview.lsvr.sk/lineago/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fpreview.lsvr.sk%2Flineago%2Ffamily-history%2F">
-        <link rel="alternate" type="text/xml+oembed"
-            href="https://preview.lsvr.sk/lineago/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fpreview.lsvr.sk%2Flineago%2Ffamily-history%2F&amp;format=xml">
+       
         <style>
             @-webkit-keyframes spin {
                 0% {
@@ -410,7 +393,7 @@
         </style>
     </head>
 
-    <div id="top" class="page-wrapper" style="margin-top: 50px">
+    <div id="top" class="page-wrapper" style="margin-top: 66px">
         <!-- CORE : begin -->
         <div id="core" class="core--narrow">
             <div class="core__inner">
@@ -565,7 +548,7 @@
                                     </blockquote>
 
 
-                                    <h4>My opinion is that I am his niece : Meryem Seghrouchni Idrissi</h4>
+                                    <h3>My opinion is that I am his niece : Meryem Seghrouchni Idrissi</h3>
                                     <p>As his niece, I want to say with all my love , Said my beloved uncle, led a life
                                         defined by extraordinary generosity and unwavering
                                         kindness. His warm smile and open heart touched everyone fortunate enough to know
@@ -599,49 +582,6 @@
             </div>
         </div>
         <!-- CORE : end -->
-
     </div>
     <!-- PAGE WRAPPER : end -->
-
-    <script type="text/javascript" src="https://preview.lsvr.sk/lineago/wp-includes/js/jquery/jquery.min.js?ver=3.6.0"
-        id="jquery-core-js"></script>
-    <script type="text/javascript"
-        src="https://preview.lsvr.sk/lineago/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.3.2" id="jquery-migrate-js">
-    </script>
-    <script type="text/javascript"
-        src="https://preview.lsvr.sk/lineago/wp-content/themes/lineago-demo/assets/js/lineago-demo-scripts.min.js?ver=1.0.0"
-        id="lsvr-lineago-demo-scripts-js"></script>
-    <script type="text/javascript" id="lsvr-lineago-demo-scripts-js-after">
-        var lsvr_lineago_path = "https://preview.lsvr.sk/lineago/wp-content/themes/lineago";
-    </script>
-    <script type="text/javascript" src="https://preview.lsvr.sk/lineago/wp-includes/js/imagesloaded.min.js?ver=4.1.4"
-        id="imagesloaded-js"></script>
-    <script type="text/javascript" src="https://preview.lsvr.sk/lineago/wp-includes/js/masonry.min.js?ver=4.2.2"
-        id="masonry-js"></script>
-    <script type="text/javascript"
-        src="https://preview.lsvr.sk/lineago/wp-content/themes/lineago/assets/js/lineago-third-party-scripts.min.js?ver=1.0.4"
-        id="lsvr-lineago-third-party-scripts-js"></script>
-    <script type="text/javascript" id="lsvr-lineago-main-scripts-js-extra">
-        /* <![CDATA[ */
-        var lsvr_lineago_main_scripts_ajax_var = {
-            "url": "https:\/\/preview.lsvr.sk\/lineago\/wp-admin\/admin-ajax.php",
-            "nonce": "5b8a8a80dc"
-        };
-        /* ]]> */
-    </script>
-    <script type="text/javascript"
-        src="https://preview.lsvr.sk/lineago/wp-content/themes/lineago/assets/js/lineago-scripts.min.js?ver=1.0.4"
-        id="lsvr-lineago-main-scripts-js"></script><span id="lsvr-media-query-breakpoint" style="display: none;"></span>
-    <script type="text/javascript" id="lsvr-lineago-main-scripts-js-after">
-        var lsvr_lineago_js_labels = {
-            "magnific_popup": {
-                "mp_tClose": "Close (Esc)",
-                "mp_tLoading": "Loading...",
-                "mp_tPrev": "Previous (Left arrow key)",
-                "mp_tNext": "Next (Right arrow key)",
-                "mp_image_tError": "The image could not be loaded.",
-                "mp_ajax_tError": "The content could not be loaded."
-            }
-        }
-    </script>
 @endsection
