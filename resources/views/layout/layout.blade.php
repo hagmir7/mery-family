@@ -192,11 +192,11 @@
             /* Ajoute une ombre légère */
         }
 
-        .cover{
-        object-fit: cover!important;
-         }
+        .cover {
+            object-fit: cover !important;
+        }
 
-         .google-btn {
+        .google-btn {
             width: auto;
             height: 42px;
             background-color: #4285f4;
@@ -260,6 +260,132 @@
         }
 
 
+        /* Fonts */
+        :root {
+            --font-default: "Open Sans", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+            --font-primary: "Inter", sans-serif;
+            --font-secondary: "Cardo", sans-serif;
+        }
+
+        /* Colors */
+        :root {
+            --color-default: #fafafa;
+            --color-primary: #27a776;
+            --color-secondary: #161718;
+        }
+
+        /* Smooth scroll behavior */
+        :root {
+            scroll-behavior: smooth;
+        }
+
+        /* Preloader styles */
+        #preloader {
+            display: flex;
+            position: fixed;
+            inset: 0;
+            width: 100%;
+            height: 100vh;
+            z-index: 99999;
+        }
+
+        #preloader:before,
+        #preloader:after {
+            content: "";
+            background-color: var(--color-secondary);
+            position: absolute;
+            inset: 0;
+            width: 50%;
+            height: 100%;
+            transition: all 0.3s ease 0s;
+            z-index: -1;
+        }
+
+        #preloader:after {
+            left: auto;
+            right: 0;
+        }
+
+        #preloader .line {
+            position: relative;
+            overflow: hidden;
+            margin: auto;
+            width: 1px;
+            height: 280px;
+            transition: all 0.8s ease 0s;
+        }
+
+        #preloader .line:before {
+            content: "";
+            position: absolute;
+            background-color: #fff;
+            left: 0;
+            top: 50%;
+            width: 1px;
+            height: 0%;
+            transform: translateY(-50%);
+            animation: lineincrease 1000ms ease-in-out 0s forwards;
+        }
+
+        #preloader .line:after {
+            content: "";
+            position: absolute;
+            background-color: #999;
+            left: 0;
+            top: 0;
+            width: 1px;
+            height: 100%;
+            transform: translateY(-100%);
+            animation: linemove 1200ms linear 0s infinite;
+            animation-delay: 2000ms;
+        }
+
+        #preloader.loaded .line {
+            opacity: 0;
+            height: 100% !important;
+        }
+
+        #preloader.loaded .line:after {
+            opacity: 0;
+        }
+
+        #preloader.loaded:before,
+        #preloader.loaded:after {
+            animation: preloaderfinish 300ms ease-in-out  forwards;
+        }
+
+        @keyframes lineincrease {
+            0% {
+                height: 0%;
+            }
+
+            100% {
+                height: 100%;
+            }
+        }
+
+        @keyframes linemove {
+            0% {
+                transform: translateY(200%);
+            }
+
+            100% {
+                transform: translateY(-100%);
+            }
+        }
+
+        @keyframes preloaderfinish {
+            0% {
+                width: 50%;
+            }
+
+            100% {
+                width: 0%;
+            }
+        }
+
+        /* Other styles for the site's sections and elements follow... */
+
         @import url(https://fonts.googleapis.com/css?family=Roboto:500);
     </style>
 
@@ -314,10 +440,10 @@
 
 <body style="background-color: #faf5f65c">
     <!-- Spinner Start -->
-    <div id="spinner"
-        class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-        <div class="spinner-grow text-primary" role="status"></div>
-    </div>
+    {{-- <div id="preloader">
+        <div class="line"></div>
+    </div> --}}
+
     <!-- Spinner End -->
 
 
@@ -396,6 +522,28 @@
 
 
     <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            "use strict";
+
+            /**
+             * Preloader
+             */
+            const preloader = document.querySelector('#preloader');
+            if (preloader) {
+                window.addEventListener('load', () => {
+                    setTimeout(() => {
+                        preloader.classList.add('loaded');
+                    }, 1000);
+                    setTimeout(() => {
+                        preloader.remove();
+                    }, 2000);
+                });
+            }
+            const mobileNavShow = document.querySelector('.mobile-nav-show');
+            const mobileNavHide = document.querySelector('.mobile-nav-hide');
+        });
+
+
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -414,9 +562,6 @@
                 return this.value;
             }).get();
 
-
-            document.getElementById(`add-btn-${product}`).innerHTML =
-                '<div class="spinner-border spinner-border-sm" role="status"></div>';
             const qty = document.getElementById('qty');
             const cart = document.getElementById('cart-items');
             $.ajax({

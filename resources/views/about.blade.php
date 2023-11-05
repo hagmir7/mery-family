@@ -1,7 +1,7 @@
 @extends('layout.layout')
 
 @section('content')
-    <div style="margin-top: 120px">
+    <div style="margin-top: 120px"  id="my-lightgallery">
         <!-- Hero Start -->
         <div class="container-fluid py-6 my-6 mt-0" style="">
             <div class="container text-center animated bounceInDown">
@@ -22,7 +22,11 @@
                 <div class="row g-5 align-items-center">
                     <div class="col-lg-5 wow bounceInUp" data-wow-delay="0.1s"
                         style="visibility: visible; animation-delay: 0.1s; animation-name: bounceInUp;">
-                        <img src="img/said_13.jpeg" class="img-fluid rounded" alt="">
+                        <a data-lg-size="480-480-480, 800-800-800, 1400-1400" data-pinterest-text="Pin it3"
+                            data-tweet-text="lightGallery" class="gallery-item" data-src="img/said_13.jpeg">
+                            <img class="img-fluid rounded" data-wow-duration="0.5s" data-wow-delay="0.2s"
+                                src="img/said_13.jpeg" alt="">
+                        </a>
                     </div>
                     <div class="col-lg-7 wow bounceInUp" data-wow-delay="0.3s"
                         style="visibility: visible; animation-delay: 0.3s; animation-name: bounceInUp;">
@@ -64,7 +68,11 @@
                     </div>
                     <div class="col-lg-4 wow bounceInUp" data-wow-delay="0.3s"
                         style="visibility: visible; animation-delay: 0.3s; animation-name: bounceInUp;">
-                        <img src="img/said_14.jpeg" class="img-fluid rounded" alt="">
+                        <a data-lg-size="480-480-480, 800-800-800, 1400-1400" data-pinterest-text="Pin it3"
+                            data-tweet-text="lightGallery" class="gallery-item" data-src="img/said_14.jpeg">
+                            <img class="img-fluid rounded" data-wow-duration="0.5s" data-wow-delay="0.2s"
+                                src="img/said_14.jpeg" alt="">
+                        </a>
                     </div>
                 </div>
             </div>
@@ -76,7 +84,11 @@
                 <div class="row g-5 align-items-center">
                     <div class="col-lg-5 wow bounceInUp" data-wow-delay="0.1s"
                         style="visibility: visible; animation-delay: 0.1s; animation-name: bounceInUp;">
-                        <img src="img/mortSaid.jpeg" class="img-fluid rounded w-75 " alt="">
+                        <a data-lg-size="480-480-480, 800-800-800, 1400-1400" data-pinterest-text="Pin it3"
+                            data-tweet-text="lightGallery" class="gallery-item" data-src="img/mortSaid.jpeg">
+                            <img class="img-fluid rounded" data-wow-duration="0.5s" data-wow-delay="0.2s"
+                                src="img/mortSaid.jpeg" alt="">
+                        </a>
                     </div>
                     <div class="col-lg-7 wow bounceInUp" data-wow-delay="0.3s"
                         style="visibility: visible; animation-delay: 0.3s; animation-name: bounceInUp;">
@@ -104,22 +116,33 @@
                         style="visibility: visible; animation-delay: 0.1s; animation-name: bounceInUp;">
                         <div class="team-item rounded">
                             <p class="mt-5 me-5">
-                                the seconde principle of zak is to provide a platform that goes beyond Said's personal story. This website is designed for those curious about history and eager to learn more. It offers a personalized glimpse into Moroccan culture, business, and the broader spectrum of life through the lens of our family's history. We believe that other families may be inspired to create their own digital family history archives, ensuring that their stories endure for eternity.
-                                    <br> <br>
-                                Join us on this journey through Said Seghrouchni Idrissi's life and explore the diverse and captivating narrative that transcends borders, cultures, and generations. Experience the power of storytelling and the enduring legacy of a life well-lived.
+                                the seconde principle of zak is to provide a platform that goes beyond Said's personal
+                                story. This website is designed for those curious about history and eager to learn more. It
+                                offers a personalized glimpse into Moroccan culture, business, and the broader spectrum of
+                                life through the lens of our family's history. We believe that other families may be
+                                inspired to create their own digital family history archives, ensuring that their stories
+                                endure for eternity.
+                                <br> <br>
+                                Join us on this journey through Said Seghrouchni Idrissi's life and explore the diverse and
+                                captivating narrative that transcends borders, cultures, and generations. Experience the
+                                power of storytelling and the enduring legacy of a life well-lived.
                             </p>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6 wow bounceInUp" data-wow-delay="0.1s"
-                    style="visibility: visible; animation-delay: 0.1s; animation-name: bounceInUp;">
-                    <div class="team-item rounded">
-                        <img class="img-fluid rounded-top " src="img/zak.png" alt="">
-                        <div class="team-content text-center py-3 bg-dark rounded-bottom">
-                            <h4 class="text-primary">Zak Seghrouchni Idrissi</h4>
-                            <p class="text-white mb-0">Project Owner</p>
+                        style="visibility: visible; animation-delay: 0.1s; animation-name: bounceInUp;">
+                        <div class="team-item rounded">
+                            <a data-lg-size="480-480-480, 800-800-800, 1400-1400" data-pinterest-text="Pin it3"
+                                data-tweet-text="lightGallery" class="gallery-item" data-src="img/zak.png">
+                                <img class="img-fluid rounded" data-wow-duration="0.5s" data-wow-delay="0.2s"
+                                    src="img/zak.png" alt="">
+                            </a>
+                            <div class="team-content text-center py-3 bg-dark rounded-bottom">
+                                <h4 class="text-primary">Zak Seghrouchni Idrissi</h4>
+                                <p class="text-white mb-0">Project Owner</p>
+                            </div>
                         </div>
                     </div>
-                </div>
                 </div>
             </div>
         </div>

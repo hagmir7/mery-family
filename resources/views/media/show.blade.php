@@ -3,8 +3,6 @@
 @section('content')
     <style>
         .gallery-image {
-            width: 274px;
-            height: 370px;
             border: 3px solid #f6f1f1;
             margin: 12px;
             transition: transform 0.3s ease-in-out;
@@ -72,31 +70,29 @@
                             <label for="addANote" class="form-label" onclick="moveLabel()"> + Add a comment</label>
                         </form>
                     </div>
-                    @foreach ($photo->comments as $comment)
-                        <div class="card mb-2">
-                            <div class="card-body">
-                                <div class="d-flex justify-content-between">
-                                    <div class="d-flex align-items-center">
-                                        <img src="{{ asset($comment->user->avatar) }}" alt="avatar" width="25"
-                                            height="25" />
-                                        <p class="small mb-0 ms-2" style="font-size: 10px">{{ $comment->user->first_name }}
-                                            {{ $comment->user->last_name }}</p>
-                                    </div>
-
-                                    @if(auth()->user()?->role === 1)
-                                        <div class="d-flex align-items-center">
-                                            <i class="bi bi-trash3" style="color: red"></i>
-                                        </div>
-                                    @endif
-
-                                </div>
-                                <h5 style="font-size: 15px" class="m-3">{{ $comment->comment }}</h5>
-                            </div>
-                        </div>
-                    @endforeach
-                    
                 </div>
             </div>
+            <br>
+            @foreach ($photo->comments as $comment)
+            <div class="card mb-2">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                        <div class="d-flex align-items-center">
+                            <img src="{{ asset($comment->user->avatar) }}" alt="avatar" width="25"
+                                height="25" />
+                            <p class="small mb-0 ms-2" style="font-size: 10px">{{ $comment->user->first_name }}
+                                {{ $comment->user->last_name }}</p>
+                        </div>
+                        @if(auth()->user()?->role === 1)
+                            <div class="d-flex align-items-center">
+                                <i class="bi bi-trash3" style="color: red"></i>
+                            </div>
+                        @endif
+                    </div>
+                    <h5 style="font-size: 15px" class="m-3">{{ $comment->comment }}</h5>
+                </div>
+            </div>
+        @endforeach
         </div>
     </div>
     </div>

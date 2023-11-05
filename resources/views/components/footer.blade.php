@@ -16,7 +16,7 @@
           </li>
 
           <li class="footer-nav-item">
-            <a href="{{ route('product.list') }}" class="footer-nav-link">About Us</a>
+            <a href="{{route('about.index')}}" class="footer-nav-link">About Us</a>
           </li>
 
           <li class="footer-nav-item">

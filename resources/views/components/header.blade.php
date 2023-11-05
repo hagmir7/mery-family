@@ -24,6 +24,12 @@
                         <a class="nav-link" href="{{ route('dashboard') }}">Dashboard</a>
                     </li>
                 @endif
+                @auth
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('user.update', auth()->user()->id) }}">Profile</a>
+                    </li>
+                @endauth
+
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('gallery.index') }}">Gallery</a>
                 </li>
@@ -31,7 +37,7 @@
                     <a class="nav-link" href="/docs/react/">Videos</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/docs/react/">Stories</a>
+                    <a class="nav-link" href="{{route('storie.index')}}">Stories</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/license/">Family History</a>

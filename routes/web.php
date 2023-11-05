@@ -23,6 +23,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CartDetailController;
 use App\Http\Controllers\ProductImagesController;
+use App\Http\Controllers\StoriesController;
 use App\Models\Media;
 
 /*
@@ -37,6 +38,7 @@ use App\Models\Media;
 */
 
 Route::get('/', function () {
+
     return view('index');
 })->name('home');
 
@@ -50,6 +52,7 @@ Route::prefix('gallery')->group(function () {
 });
 
 Route::resource('/about',AboutController::class);
+Route::resource('/storie',StoriesController::class);
 
 Route::resource('comments', CommentController::class);
 Route::get('register', [UserController::class, 'register'])->name('register');
