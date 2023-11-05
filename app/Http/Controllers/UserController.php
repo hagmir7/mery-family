@@ -47,7 +47,7 @@ class UserController extends Controller
             Cart::create(['user_id' => $newUser->id, 'total' => 0 ]);
             auth()->login($newUser);
 
-            return redirect()->route('home')->with('message', 'Utilisateur créé avec succès');
+            return redirect()->route('home')->with('message', 'User created successfully');
         }else{
             throw ValidationException::withMessages(['password' => 'This value is incorrect']);
         }
@@ -104,7 +104,7 @@ class UserController extends Controller
 
         }
         $user->update($data);
-        return redirect()->route('user.update', $user->id)->with(['message' => "Mise à jour du profil réussie"]);
+        return redirect()->route('user.update', $user->id)->with(['message' => "Profile update successful"]);
     }
 
 
@@ -113,6 +113,6 @@ class UserController extends Controller
 
         !auth()->user()->role == 1 && abort(404);
         $user->delete();
-        return redirect()->route('user.list')->with('message','Utilisateur est supprimer avec succès');
+        return redirect()->route('user.list')->with('message','User is successfully deleted');
     }
 }

@@ -83,14 +83,14 @@
                             <p class="small mb-0 ms-2" style="font-size: 10px">{{ $comment->user->first_name }}
                                 {{ $comment->user->last_name }}</p>
                         </div>
-                
+
                     @if (auth()->user() && (auth()->user()->id === $comment->user_id || auth()->user()->role === 1))
                     <div class="d-flex align-items-center">
                         <form method="post"
                             action="{{ route('comments.destroy', ['comment' => $comment->id]) }}">
                             @csrf
                             @method('DELETE')
-                            <button type="submit"><i class="bi bi-trash3" style="color: red"></i></button>
+                            <button type="submit" onclick="confirmDelete({{ $comment->id }})"><i class="bi bi-trash3" style="color: red"></i></button>
                         </form>
                     </div>
                 @endif
@@ -115,5 +115,15 @@
                 }
             });
         });
+    </script>
+
+    <script>
+        function confirmDelete(commentId) {
+    if (confirm('Are you sure you want to delete this comment?')) {
+        // L'utilisateur a confirmé la suppression, soumettez le formulaire
+        document.querySelector('form[action="' + commentId + '"]').submit();
+    }
+}
+
     </script>
 @endsection

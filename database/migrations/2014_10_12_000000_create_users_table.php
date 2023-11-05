@@ -28,12 +28,12 @@ return new class extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
-           
+
         });
 
         User::create([
             'first_name' => 'mery',
-            'last_name' => "shop",
+            'last_name' => "Seghrouchni",
             'email' => 'mery@gmail.com',
             "password" => Hash::make('mery123'),
             "token" => Str::random(40),
