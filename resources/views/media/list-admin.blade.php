@@ -6,6 +6,57 @@
         a {
             text-decoration: none !important;
         }
+
+        .photo-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .photo-item {
+            flex: 0 0 calc(33.33% - 10px);
+            /* Pour 3 photos par ligne avec un espace de 10px entre elles */
+            position: relative;
+            margin: 0 5px;
+            margin-bottom: 10px;
+        }
+
+        .photo {
+            width: 100%;
+            height: 300px;
+            transition: transform 0.3s;
+        }
+
+        .photo-buttons {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0;
+            transition: opacity 0.3s;
+            background-color: rgba(0, 0, 0, 0.7);
+            text-align: center;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .photo-item:hover .photo-buttons {
+            opacity: 1;
+        }
+
+        .edit-button,
+        .delete-button {
+            color: white;
+            text-decoration: none;
+            display: block;
+            margin-top: 10px;
+        }
+
+        .checkthis {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+        }
     </style>
 
     @php
@@ -16,62 +67,48 @@
     @endphp
     <h4 class="m-5">PHOTOS ({{ $categories->count() }})</h4>
     <div class="d-flex justify-content-between m-5">
+
         <p>
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                + Add aphoto
+            <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                + Add a photo
             </button>
         </p>
-        <p><button class="btn btn-outline-danger btn-sm" id="btn-delete" onclick="deleteCategories()"><i
-                    class="bi bi-trash"></i> Supprimer sélectionnée</button></p>
+
+        <p>
+            <button class="btn btn-danger btn-sm" id="btn-delete" onclick="deleteCategories()">
+                <i class="bi bi-trash"></i>
+                Delete selected
+            </button>
+        </p>
+
         <p>
         <form method="GET"> <input type="search" name="search" class="form-control form-control-sm border"
                 placeholder="Search"></form>
         </p>
+
     </div>
 
     <div class="col-10 m-5">
-        <div class="card shadow-sm">
-            <div class="card-body">
-                <table id="datatable-buttons" class="table table-bordered dt-responsive nowrap w-100">
-                    <thead>
-
-                        <tr>
-                            <th><input type="checkbox" id="checkall"></th>
-                            <th>Photos</th>
-                            <th>Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($categories as $category)
-                            <tr id="category-{{ $category->id }}">
-                                <td><input type="checkbox" class="checkthis" name="category[]" value="{{ $category->id }}">
-                                </td>
-                                <td>
-                                    <a class="text-black underline-none" href="{{ route('category', $category->id) }}">
-                                        <img class="font-size-24" alt="{{ $category->name }}"
-                                            src="{{ asset($category->file) }}" width="50" height="50" />
-                                        <!-- Ajout de l'image -->
-                                        {{ $category->name }} <!-- Affichage du nom de la catégorie -->
-                                    </a>
-                                </td>
-                                <td>
-                                    <a href="{{ route('category.update', $category->id) }}"
-                                        class="btn btn-outline-secondary btn-sm edit"><i class="bx bx-pencil"></i></a>
-                                    <a href="{{ route('category.delete', $category->id) }}"
-                                        onclick="return confirm('Are you sur you want to delete category?')"
-                                        class="btn btn-danger btn-sm font-size-16"><i class="fas fa-trash-alt"></i> </a>
-                                </td>
-                            </tr>
-                        @endforeach
-                    </tbody>
-                </table>
+            <div class="photo-gallery">
+                @foreach ($categories as $category)
+                    <div class="photo-item">
+                        <img class="photo" alt="{{ $category->name }}" src="{{ asset($category->file) }}" />
+                        <div class="photo-buttons">
+                            <a href="{{ route('category.update', $category->id) }}" class="edit-button"><i
+                                    class="bx bx-pencil"></i> Modifier</a>
+                            <a href="{{ route('category.delete', $category->id) }}"
+                                onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette catégorie?')"
+                                class="delete-button"><i class="fas fa-trash-alt"></i> Supprimer</a>
+                        </div>
+                        <input type="checkbox" class="checkthis" name="category[]" value="{{ $category->id }}" />
+                    </div>
+                @endforeach
             </div>
-        </div>
     </div>
     <div class="clearfix"></div>
     {{ $categories->links() }}
 
-    </div>
+
 
 
     <!-- Modal -->
@@ -121,56 +158,67 @@
 @endsection
 
 @section('script')
-    <script>
+<script>
+    $(document).ready(function() {
         $('#checkall').change(function() {
             $('input[name="category[]"]').prop('checked', $(this).prop('checked'));
         });
 
-
-        const deleteCategories = (e) => {
+        const deleteCategories = () => {
             const categories = $('input[name="category[]"]:checked');
-            const listcategories = categories.map(function() {
+            const listCategories = categories.map(function() {
                 return this.value;
             }).get();
 
-            const deleteBtn = document.querySelector('#btn-delete')
+            const deleteBtn = $('#btn-delete'); // Utiliser jQuery pour la cohérence
 
-            if (confirm('Voulez-vous vraiment supprimer ce produits ?')) {
-                deleteBtn.innerHTML = (
+            if (confirm('Voulez-vous vraiment supprimer ces produits ?')) {
+                deleteBtn.html(
                     '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span><span>  Suppression...</span>'
-                )
+                );
                 $.ajax({
-                    url: `{{ route('category.delete.multiple') }}`,
+                    url: `{{ route('gallery.delete.multiple') }}`, // Assurez-vous que cette route est correcte et fonctionnelle
                     method: "POST",
                     data: {
-                        category: listcategories
+                        _token: "{{ csrf_token() }}", // Ajoutez le token CSRF si nécessaire
+                        category: listCategories
                     },
                     success: function(response) {
-                        listcategories.forEach(element => {
-                            document.querySelector('#category-' + element).remove()
+                        listCategories.forEach(element => {
+                            let categoryElement = $('#category-' + element);
+                            if (categoryElement.length) {
+                                categoryElement.remove();
+                            }
                         });
-                        deleteBtn.innerHTML = 'Supprimer sélectionnée';
+                        deleteBtn.html('Delete selected');
                         Swal.fire({
                             title: 'Succès!',
                             text: response.message,
                             icon: 'success',
                             confirmButtonText: 'OK'
-                        })
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                window.location.reload();
+                            }
+                        });
                     },
                     error: function(xhr) {
-                        deleteBtn.innerHTML = 'Supprimer sélectionnée'
+                        deleteBtn.html('Delete selected');
                         Swal.fire({
-                            title: 'Error!',
+                            title: 'Erreur!',
                             text: xhr.responseJSON.message,
                             icon: 'error',
                             confirmButtonText: 'OK'
-                        })
+                        });
                     }
                 });
             }
-
         }
-    </script>
+
+        // Ajoutez un écouteur d'événements pour votre bouton supprimer
+        $('#btn-delete').on('click', deleteCategories);
+    });
+</script>
 
     <script>
         function previewImage() {

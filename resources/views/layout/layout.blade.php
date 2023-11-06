@@ -253,7 +253,7 @@
 
         hr:after {
             background: #fff;
-            content: 'OU';
+            content: 'Or';
             padding: 0 4px;
             position: relative;
             top: -13px;
@@ -454,14 +454,10 @@
     <!-- - HEADER  -->
 
     @include('components.header')
-    <div class="mp-hero-section hero-section section title" style="margin-top: -220px">
-        <div class="container">
-            <div class="row">
+
                 <!-- Navbar End -->
                 @yield('content')
-            </div>
-        </div>
-    </div>
+
 
     <!-- Footer Start -->
     <x-footer />

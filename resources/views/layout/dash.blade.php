@@ -68,7 +68,7 @@
                     </li> --}}
 
                     <li class="nav-link">
-                        <a href="{{ route("category.list.admin") }}">
+                        <a href="{{ route("gallery.list.admin") }}">
                             <i class="fa-regular fa-images fa-xl icon" style="color: black;"></i>
                             <span class="text nav-text">Gallery</span>
                         </a>

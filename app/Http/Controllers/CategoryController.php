@@ -17,31 +17,27 @@ class CategoryController extends Controller
 
     }
 
-    public function listAdmin(Request $request)
-    {
-        if (isset($request->search)) {
-            $categories  = Media::where('name', 'LIKE', '%' . $request->search . '%')->paginate(30);
-        } else {
-            $categories  = Media::paginate(30);
-        }
-        return view('category.list-admin', [
-            'categories' => $categories
-        ]);
-    }
+    // public function listAdmin(Request $request)
+    // {
+    //     if (isset($request->search)) {
+    //         $categories  = Media::where('name', 'LIKE', '%' . $request->search . '%')->paginate(30);
+    //     } else {
+    //         $categories  = Media::paginate(30);
+    //     }
+    //     return view('category.list-admin', [
+    //         'categories' => $categories
+    //     ]);
+    // }
 
-
-    public function create(){
-        return view('category.create');
-    }
 
     public function store(Request $request){
         $request->validate([
             'name' => 'required|max:60',
-            'image' => 'image|mimes:jpeg,png,jpg,gif|max:2048' // validate each image
+            'image' => 'image|mimes:jpeg,png,jpg,gif' // validate each image
         ]);
 
         $file = $request->file('image');
-        $path = $file->store('public/category');
+        $path = $file->store('public/img');
         $url = Storage::url($path);
 
         Media::create([
@@ -89,7 +85,7 @@ class CategoryController extends Controller
     public function deleteMultiple(Request $request){
         $categories = $request->input('category', []);
         Media::whereIn('id', $categories)->delete();
-        return response()->json(['message' => 'Les Catégories ont été supprimés avec succès!']);
+        return response()->json(['message' => 'The images were successfully deleted!']);
 
     }
 }

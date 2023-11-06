@@ -296,12 +296,17 @@
             .header-branding__logo-link {
                 max-width: 90px;
             }
+            p{
+                color: black;
+                word-spacing: 1.5px;
+                font-weight :450;
+            }
         </style>
-     
+
         <link rel="stylesheet" id="lsvr-lineago-color-scheme-css"
             href="https://preview.lsvr.sk/lineago/wp-content/themes/lineago/assets/css/color-schemes/default.css?ver=1.0.4"
             type="text/css" media="all">
-       
+
         <style>
             @-webkit-keyframes spin {
                 0% {
@@ -432,8 +437,8 @@
                     <div class="core-header__bg">
 
                         <div class="core-header__bg-image"
-                            style="background-image: url( 'img/bg_stories.jpg' );width: 100%">
-                            <img src="img/bg_stories.jpg" class="core-header__bg-img" aria-hidden="true" alt="">
+                            style="background-image: url( 'img/bg_stories.jpg' ); ">
+                            <img src="img/bg_stories.jpg" class="core-header__bg-img" aria-hidden="true" alt="" >
                         </div>
 
                         <div class="core-header__bg-overlay" style="opacity: 0.8"></div>

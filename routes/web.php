@@ -49,6 +49,8 @@ Route::prefix('gallery')->group(function () {
     Route::get('create', [mediaController::class, 'create'])->name('gallery.create');
     Route::post('store', [mediaController::class, 'store'])->name('gallery.store');
     Route::get('{id}', [mediaController::class, 'show'])->name('gallery.show');
+    Route::get('list/admin', [mediaController::class, 'listAdmin'])->name('gallery.list.admin')->middleware('auth');
+    Route::post('delete', [CategoryController::class, 'deleteMultiple'])->name('gallery.delete.multiple')->middleware('auth');
 });
 
 Route::resource('/about',AboutController::class);
@@ -127,12 +129,12 @@ Route::prefix('/category')->group(function(){
     Route::get('create', [mediaController::class, 'create'])->name('category.create')->middleware('auth');
     Route::get('list', [CategoryController::class, 'list'])->name('category.list');
     Route::get('{category}', [CategoryController::class, 'category'])->name('category');
-    Route::get('list/admin', [CategoryController::class, 'listAdmin'])->name('category.list.admin')->middleware('auth');
+    // Route::get('list/admin', [CategoryController::class, 'listAdmin'])->name('category.list.admin')->middleware('auth');
     Route::post('store', [mediaController::class, 'store'])->name('category.store')->middleware('auth');
     Route::get('update/{category}', [CategoryController::class, 'update'])->name('category.update')->middleware('auth');
     Route::post('update/store{category}', [CategoryController::class, 'updateStore'])->name('category.update.store')->middleware('auth');
     Route::get('delete/{category}', [CategoryController::class, 'delete'])->name('category.delete')->middleware('auth');
-    Route::post('delete', [CategoryController::class, 'deleteMultiple'])->name('category.delete.multiple')->middleware('auth');
+    // Route::post('delete', [CategoryController::class, 'deleteMultiple'])->name('category.delete.multiple')->middleware('auth');
 });
 
 

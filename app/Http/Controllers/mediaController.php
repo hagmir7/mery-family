@@ -32,7 +32,7 @@ class mediaController extends Controller
     {
         $request->validate([
             'description' => 'required|max:60',
-            'file' => 'image|mimes:jpeg,png,jpg,gif|max:2048' // validate each image
+            'file' => 'image|mimes:jpeg,png,jpg,gif' // validate each image
         ]);
 
         $file = $request->file('file');
@@ -45,6 +45,25 @@ class mediaController extends Controller
         ]);
 
         return redirect()->back()->with(['message' => "The image has been created successfully."]);
+
+    }
+
+    public function listAdmin(Request $request)
+    {
+        if (isset($request->search)) {
+            $categories  = Media::where('name', 'LIKE', '%' . $request->search . '%')->paginate(30);
+        } else {
+            $categories  = Media::paginate(30);
+        }
+        return view('media.list-admin', [
+            'categories' => $categories
+        ]);
+    }
+
+    public function deleteMultiple(Request $request){
+        $categories = $request->input('category', []);
+        Media::whereIn('id', $categories)->delete();
+        return response()->json(['message' => 'The images were successfully deleted!']);
 
     }
 

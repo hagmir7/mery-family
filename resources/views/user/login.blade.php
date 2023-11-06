@@ -9,9 +9,10 @@
             <br>
             <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
             <a href="{{ route('login.google') }}">
-                <div class="googwele-btn">
+                <div class="google-btn">
                     <div class="google-icon-wrapper">
-                        <img class="google-icon" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"/>
+                        <img class="google-icon"
+                            src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" />
                     </div>
                     <p class="btn-text"><b>Log in with Google</b></p>
 

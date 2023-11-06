@@ -1,5 +1,11 @@
 @extends('layout.layout')
-
+<style>
+    p{
+        color: black;
+        letter-spacing: 1px;
+        font-weight :500;
+    }
+</style>
 @section('content')
     <div style="margin-top: 120px"  id="my-lightgallery">
         <!-- Hero Start -->
