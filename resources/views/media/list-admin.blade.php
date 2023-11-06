@@ -219,7 +219,7 @@
 
             const deleteBtn = $('#btn-delete'); // Utiliser jQuery pour la cohérence
 
-            if (confirm('Voulez-vous vraiment supprimer ces produits ?')) {
+            if (confirm('Are you sure you want to delete these photos ?')) {
                 deleteBtn.html(
                     '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span><span>  Suppression...</span>'
                 );
