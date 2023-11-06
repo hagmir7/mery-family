@@ -94,11 +94,17 @@
                     <div class="photo-item">
                         <img class="photo" alt="{{ $category->name }}" src="{{ asset($category->file) }}" />
                         <div class="photo-buttons">
-                            <a href="{{ route('category.update', $category->id) }}" class="edit-button"><i
-                                    class="bx bx-pencil"></i> Modifier</a>
-                            <a href="{{ route('category.delete', $category->id) }}"
-                                onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette catégorie?')"
-                                class="delete-button"><i class="fas fa-trash-alt"></i> Supprimer</a>
+                            <a type="button" class="edit-button" data-bs-toggle="modal" data-bs-target="#editModal-{{ $category->id }}">
+                                <i class="bx bx-pencil m-1" ></i>
+                                Update
+                            </a>
+                            <form action="{{ route('gallery.delete', $category->id) }}" method="POST" style="display: inline;">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="delete-button" onclick="return confirm('Are you sure you want to delete this photo?')" style="background: none; color: white; border: none; padding: 0; font: inherit; cursor: pointer; outline: inherit;">
+                                    <i class="fas fa-trash-alt m-1"></i> Delete
+                                </button>
+                            </form>
                         </div>
                         <input type="checkbox" class="checkthis" name="category[]" value="{{ $category->id }}" />
                     </div>
@@ -110,8 +116,7 @@
 
 
 
-
-    <!-- Modal -->
+    <!-- Modal Create -->
     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
         aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -150,11 +155,53 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Understood</button>
                 </div>
             </div>
         </div>
     </div>
+
+    {{-- end modal create --}}
+
+
+    {{-- Modal Update  --}}
+@foreach ($categories as $category)
+
+    <div class="modal fade" id="editModal-{{ $category->id }}" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <form action="{{ route('gallery.update', $category->id) }}" method="POST" enctype="multipart/form-data">
+            @csrf
+            @method('PUT')
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="editModalLabel">Edit Photo</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                {{-- Form fields here --}}
+                <div class="mb-3">
+                  <label for="description-{{ $category->id }}" class="form-label">Description</label>
+                  <textarea class="form-control" id="description-{{ $category->id }}" name="description">{{ $category->description }}</textarea>
+                </div>
+                <div class="mb-3">
+                  <label for="file-{{ $category->id }}" class="form-label">Photo</label>
+                  <input type="file" class="form-control" id="file-{{ $category->id }}" name="file" accept="image/*" onchange="previewImage({{ $category->id }})">
+                @error('file')
+                  <span class="text-danger">{{ $message }}</span> <br>
+                @enderror
+                </div>
+              </div>
+               <!-- Aperçu de l'image -->
+               <img id="imagePreview-{{ $category->id }}" src="{{ asset($category->file) }}" alt="Preview" style="max-width: 100%; margin: 10px;">
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Update Photo</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+          
+@endforeach
 @endsection
 
 @section('script')
@@ -239,4 +286,25 @@
             }
         }
     </script>
+
+<script>
+    function previewImage(categoryId) {
+        var fileInput = document.getElementById('file-' + categoryId);
+        var imagePreview = document.getElementById('imagePreview-' + categoryId);
+
+        if (fileInput.files && fileInput.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function(e) {
+                imagePreview.src = e.target.result;
+                imagePreview.style.display = 'block'; // Show the preview
+            }
+
+            reader.readAsDataURL(fileInput.files[0]);
+        } else {
+            imagePreview.style.display = 'none'; // Hide the preview if no file is selected
+        }
+    }
+</script>
+
 @endsection

@@ -48,6 +48,8 @@ Route::prefix('gallery')->group(function () {
     Route::get('', [mediaController::class, 'index'])->name('gallery.index');
     Route::get('create', [mediaController::class, 'create'])->name('gallery.create');
     Route::post('store', [mediaController::class, 'store'])->name('gallery.store');
+    Route::put('gallery/update/{id}', [mediaController::class, 'update'])->name('gallery.update');
+    Route::delete('gallery/{id}', [MediaController::class, 'destroy'])->name('gallery.delete');
     Route::get('{id}', [mediaController::class, 'show'])->name('gallery.show');
     Route::get('list/admin', [mediaController::class, 'listAdmin'])->name('gallery.list.admin')->middleware('auth');
     Route::post('delete', [CategoryController::class, 'deleteMultiple'])->name('gallery.delete.multiple')->middleware('auth');

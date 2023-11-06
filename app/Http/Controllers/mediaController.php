@@ -79,26 +79,60 @@ class mediaController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit($id)
     {
-        //
+        $category = Media::findOrFail($id);
+        return response()->json($category);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
-    {
-        //
+/**
+ * Update the specified resource in storage.
+ */
+public function update(Request $request, $id)
+{
+    $category = Media::findOrFail($id);
+
+    $request->validate([
+        'description' => 'required|max:255',
+        'file' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+    ]);
+
+    $input = $request->all();
+    if ($request->hasFile('file')) {
+        Storage::delete($category->file);
+
+        // Store the new file
+        $path = $request->file('file')->store('public/Media');
+        $input['file'] = Storage::url($path);
     }
+
+    $category->update($input);
+
+    return redirect()->back()->with(['message' => "The photo has been updated successfully."]);
+}
+
+
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
-        //
+        $category = Media::findOrFail($id);
+        
+        // Delete the file from the filesystem
+        $file = str_replace('/storage', 'public', $category->file);
+        Storage::delete($file);
+    
+        // Delete the photo record
+        $category->delete();
+    
+        return redirect()->back()->with('message', 'Photo deleted successfully.');
     }
+    
 
 
 }
