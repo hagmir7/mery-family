@@ -36,7 +36,9 @@
         @endforeach
     </div>
 </div>
-{{$photos->links()}}
+<div class="container">
+    {{$photos->links()}}
+</div>
 <script>
     document.addEventListener("DOMContentLoaded", function () {
         const grid = document.querySelector('.image-grid');
