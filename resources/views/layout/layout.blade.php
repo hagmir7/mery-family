@@ -436,18 +436,14 @@
 </head>
 
 
-
-
 <body style="background-color: #faf5f65c">
     <!-- Spinner Start -->
+
     <div id="preloader">
         <div class="line"></div>
     </div>
 
     <!-- Spinner End -->
-
-
-
 
     <div class="overlay" data-overlay></div>
 
@@ -455,9 +451,8 @@
 
     @include('components.header')
 
-                <!-- Navbar End -->
-                @yield('content')
-
+    <!-- Navbar End -->
+    @yield('content')
 
     <!-- Footer Start -->
     <x-footer />
