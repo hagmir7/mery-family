@@ -14,15 +14,18 @@ class MediaSeeder extends Seeder
     public function run(): void
     {
         DB::table('media')->insert([
+        'user_id'=>1,
             'file' => 'img/1.jpg',
         ]);
 
         for ($i = 1; $i <= 34; $i++) {
             DB::table('media')->insert([
+                'user_id'=>1,
                 'file' => 'img/said_' . $i . '.jpeg',
             ]);
         }
         DB::table('media')->insert([
+            'user_id'=>1,
             'file' => 'img/said_07.jpeg',
         ]);
     }

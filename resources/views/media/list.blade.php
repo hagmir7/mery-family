@@ -1,5 +1,4 @@
 @extends('layout.layout')
-
 @section('content')
 <style>
     .gallery-image {
@@ -11,7 +10,6 @@
         object-fit: cover !important;
     }
 </style>
-
 <div class="container" style="margin-top: 120px">
     <div class="row image-grid">
         @foreach ($photos as $photo)
@@ -29,7 +27,6 @@
                     src="{{ $photo->file }}"
                     style="width: 100%;" />
                     @endif
-
                 </a>
             </div>
         </div>
@@ -50,4 +47,3 @@
     });
 </script>
 @endsection
-

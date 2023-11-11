@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Media;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -11,12 +12,12 @@ class mediaController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
-    {
-        $photos= Media::paginate(15);
-        return view('media.list' , compact('photos'));
-    }
-
+public function index()
+{
+    $user = User::where('role', 1)->latest()->first();
+    $photos = $user->media()->paginate(15);
+    return view('media.list', compact('photos'));
+}
     /**
      * Show the form for creating a new resource.
      */
@@ -122,17 +123,17 @@ public function update(Request $request, $id)
     public function destroy($id)
     {
         $category = Media::findOrFail($id);
-        
+
         // Delete the file from the filesystem
         $file = str_replace('/storage', 'public', $category->file);
         Storage::delete($file);
-    
+
         // Delete the photo record
         $category->delete();
-    
+
         return redirect()->back()->with('message', 'Photo deleted successfully.');
     }
-    
+
 
 
 }

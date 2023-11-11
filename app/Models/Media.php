@@ -16,4 +16,9 @@ class Media extends Model
     {
         return $this->hasMany(Comment::class);
     }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
