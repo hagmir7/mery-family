@@ -12,12 +12,23 @@ class mediaController extends Controller
     /**
      * Display a listing of the resource.
      */
-public function index()
-{
-    $user = User::where('role', 1)->latest()->first();
-    $photos = $user->media()->paginate(15);
-    return view('media.list', compact('photos'));
-}
+
+    public function index(Request $request)
+    {
+        $search = $request->input('search');
+
+        if ($search) {
+            $photos = Media::whereHas('user', function($user) use ($search) {
+                $user->where('role', 0)->where('last_name', 'LIKE', '%' . $search . '%');
+            })->paginate(15);
+        } else {
+            $photos = Media::whereHas('user', function($user) {
+                $user->where('role', 1);
+            })->paginate(15);
+        }
+        return view('media.list', compact('photos'))->with(['message' => 'Aucun utilisateur trouvé']);
+    }
+
     /**
      * Show the form for creating a new resource.
      */
@@ -42,7 +53,8 @@ public function index()
 
         Media::create([
             'description' => $request->input('description'),
-            'file' => $url
+            'file' => $url,
+            'user_id' => auth()->user()->id,
         ]);
 
         return redirect()->back()->with(['message' => "The image has been created successfully."]);
@@ -51,8 +63,8 @@ public function index()
 
     public function listAdmin(Request $request)
     {
-        if (isset($request->search)) {
-            $categories  = Media::where('name', 'LIKE', '%' . $request->search . '%')->paginate(30);
+        if (!auth()->user()->role) {
+            $categories  = Media::where('user_id', auth()->user()->id)->paginate(30);
         } else {
             $categories  = Media::paginate(30);
         }
@@ -133,7 +145,6 @@ public function update(Request $request, $id)
 
         return redirect()->back()->with('message', 'Photo deleted successfully.');
     }
-
 
 
 }

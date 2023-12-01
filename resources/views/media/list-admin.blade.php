@@ -25,6 +25,7 @@
             width: 100%;
             height: 300px;
             transition: transform 0.3s;
+            object-fit: cover;
         }
 
         .photo-buttons {
@@ -200,7 +201,7 @@
           </form>
         </div>
       </div>
-          
+
 @endforeach
 @endsection
 
@@ -266,31 +267,10 @@
         $('#btn-delete').on('click', deleteCategories);
     });
 </script>
-
-    <script>
-        function previewImage() {
-            var fileInput = document.getElementById('imageInput');
-            var imagePreview = document.getElementById('imagePreview');
-
-            if (fileInput.files && fileInput.files[0]) {
-                var reader = new FileReader();
-
-                reader.onload = function(e) {
-                    imagePreview.src = e.target.result;
-                    imagePreview.style.display = 'block'; // Affiche l'aperçu
-                }
-
-                reader.readAsDataURL(fileInput.files[0]);
-            } else {
-                imagePreview.style.display = 'none'; // Cache l'aperçu si aucun fichier n'est sélectionné
-            }
-        }
-    </script>
-
 <script>
     function previewImage(categoryId) {
-        var fileInput = document.getElementById('file-' + categoryId);
-        var imagePreview = document.getElementById('imagePreview-' + categoryId);
+        var fileInput = document.getElementById(categoryId ? 'file-' + categoryId : 'imageInput');
+        var imagePreview = document.getElementById(categoryId ? 'imagePreview-' + categoryId : 'imagePreview');
 
         if (fileInput.files && fileInput.files[0]) {
             var reader = new FileReader();
@@ -306,5 +286,6 @@
         }
     }
 </script>
+
 
 @endsection

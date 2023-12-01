@@ -7,23 +7,35 @@ use Illuminate\Http\Request;
 
 class ContactController extends Controller
 {
-    public function list(){
-        return view('contact.list', [
-            'contacts' => Contact::all()
-        ]);
+    public function list()
+    {
+        if (auth()->user()->role) {
+            return view('contact.list', [
+                'contacts' => Contact::all()
+            ]);
+        } else {
+            abort(404);
+        }
     }
 
-    public function create(){
+    public function create()
+    {
         return view('contact.create');
     }
 
-    public function show(Contact $contact){
-        return view('contact.show', [
-            'contact' => $contact
-        ]);
+    public function show(Contact $contact)
+    {
+        if (auth()->user()->role) {
+            return view('contact.show', [
+                'contact' => $contact
+            ]);
+        } else {
+            abort(404);
+        }
     }
 
-    public function store(Request $request){
+    public function store(Request $request)
+    {
         $request->validate([
             "full_name" => "required|string",
             "email" => "required|string",
@@ -37,8 +49,6 @@ class ContactController extends Controller
 
         ]);
 
-        return redirect()->route('contact.list')->with('message', "Le message a été envoyer avec succès.");
-        
-        
+        return redirect()->route('contact.create')->with('message', "The message was sent successfully.");
     }
 }

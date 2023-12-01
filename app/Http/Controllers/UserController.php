@@ -13,20 +13,27 @@ use Illuminate\Validation\ValidationException;
 
 class UserController extends Controller
 {
-    public function list(){
-        return view('user/list',[
-            'users' => User::paginate(20)
-        ]);
+    public function list()
+    {
+        if (auth()->user()->role) {
+            return view('user/list', [
+                'users' => User::paginate(20)
+            ]);
+        }else{
+            abort(404);
+        }
     }
 
 
-   public function register(){
-    return view('user.register');
-   }
+    public function register()
+    {
+        return view('user.register');
+    }
 
 
-    public function store(Request $request){
-        if($request->input('password') == $request->input('password_1')){
+    public function store(Request $request)
+    {
+        if ($request->input('password') == $request->input('password_1')) {
 
             $request->validate([
                 "first_name" => 'required|string|max:100',
@@ -44,29 +51,32 @@ class UserController extends Controller
                 "password" => Hash::make($request->password),
                 "token" => Str::random(40),
             ]);
-            Cart::create(['user_id' => $newUser->id, 'total' => 0 ]);
+            Cart::create(['user_id' => $newUser->id, 'total' => 0]);
             auth()->login($newUser);
 
             return redirect()->route('home')->with('message', 'User created successfully');
-        }else{
+        } else {
             throw ValidationException::withMessages(['password' => 'This value is incorrect']);
         }
     }
 
 
-    public function logout(){
+    public function logout()
+    {
         Auth::logout();
         return redirect('/');
     }
 
-    public function show(User $user){
+    public function show(User $user)
+    {
         return view('user.profile', [
             "user" => $user
         ]);
     }
 
 
-    public function update(User $user) {
+    public function update(User $user)
+    {
         // dd(Auth::user()->role);
         if (Auth::user()->role == 1 || Auth::user()->id == $user->id) {
             return view('user.update', [
@@ -77,7 +87,8 @@ class UserController extends Controller
         }
     }
 
-    public function updateStore(Request  $request,User $user){
+    public function updateStore(Request  $request, User $user)
+    {
         $user->id !== auth()->user()->id && abort(404);
         $request->validate([
             "first_name" => "required|max:100|min:2",
@@ -97,11 +108,10 @@ class UserController extends Controller
             "address" => $request->input('address'),
         ];
 
-        if($avatar){
+        if ($avatar) {
             $path = $avatar->store('public/avatars');
             $url = Storage::url($path);
             $data = array_merge($data, ["avatar" => $url]);
-
         }
         $user->update($data);
         return redirect()->route('user.update', $user->id)->with(['message' => "Profile update successful"]);
@@ -109,10 +119,11 @@ class UserController extends Controller
 
 
 
-    public function delete(User $user){
+    public function delete(User $user)
+    {
 
         !auth()->user()->role == 1 && abort(404);
         $user->delete();
-        return redirect()->route('user.list')->with('message','User is successfully deleted');
+        return redirect()->route('user.list')->with('message', 'User is successfully deleted');
     }
 }

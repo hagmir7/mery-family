@@ -88,15 +88,28 @@ Route::prefix('/image')->group(function(){
 });
 
 Route::get('/dashboard', function(){
-    !auth()->user()->role && abort(404);
+
+    $contacts = Contact::all();
+    $users = User::all()->count();
+    $categories = Category::all();
+
+    if(auth()->user()->role){
+        $media = Media::all(); //('user_id', auth()->user()->id)->get();
+        $contacts = Contact::all();
+        $users = User::all()->count();
+        $categories = Category::all();
+
+
+    }else{
+        $media = Media::where('user_id', auth()->user()->id)->get();
+
+    }
+
     return view('dashboard',[
-        'contacts' => Contact::all(),
-        'users' => User::all()->count(),
-        'orders' => Order::all(),
-        'new_orders' => Order::where('status', null)->get(),
-        'media' => Media::all(),
-        'categories' => Category::all(),
-        'users' => User::query()->count(),
+        'media' => $media,
+        'contacts' => $contacts,
+        'categories' => $categories,
+        'users' => $users,
     ]);
 
 

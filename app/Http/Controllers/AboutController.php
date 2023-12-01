@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\About;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class AboutController extends Controller
 {
@@ -11,7 +13,8 @@ class AboutController extends Controller
      */
     public function index()
     {
-        return view('about');
+        $abouts=About::all();
+        return view('about', compact('abouts'));
     }
 
     /**
@@ -41,9 +44,10 @@ class AboutController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit($id)
     {
-        //
+        $abouts = About::findOrFail($id);
+        return view('about', compact('abouts'));
     }
 
     /**
@@ -51,9 +55,25 @@ class AboutController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
-    }
+        $abouts = About::findOrFail($id);
+        $request->validate([
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'description' => 'required',
+        ]);
 
+        $input = $request->all();
+
+        if ($request->hasFile('image')) {
+            Storage::delete($abouts->image);
+            $path = $request->file('image')->store('public/Media');
+            $input['image'] = Storage::url($path);
+        }
+
+        $abouts->update($input);
+    
+        return redirect()->back()->with('success', 'About information updated successfully');
+    }
+    
     /**
      * Remove the specified resource from storage.
      */

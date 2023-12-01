@@ -18,6 +18,38 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
 
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
+
+
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <title>Said Seghrouchni Idrissi</title>
+    <meta property="og:title" content="lightGallery">
+    <meta property="og:description"
+        content="A lightweight, modular, JavaScript image and video lightbox gallery plugin. Available for React.js, Vue.js, Angular, and TypeScript.">
+    <meta property="og:type" content="website">
+    <meta property="og:updated_time" content="2023-07-20T17:03:47+05:30">
+    <meta property="og:site_name" content="lightGallery">
+    <meta property="article:publisher" content="https://www.facebook.com/sachinchoolur">
+    <meta property="article:author" content="https://www.facebook.com/sachinchoolur">
+    <meta property="og:locale" content="en_US">
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <link rel="alternate" type="application/rss+xml" href="https://www.lightgalleryjs.com/index.xml">
+    <meta name="ahrefs-site-verification" content="96bd744dcfe6c078a1994c8d9e0e0ca6a5cf16004f63946a0cd349ca937c1b24">
+    <meta name="theme-color" content="#fff">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://www.lightgalleryjs.com/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href='img/SAID-logo.png'>
+    <link rel="manifest" href="https://www.lightgalleryjs.com/site.webmanifest">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.10.0/css/lightgallery.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
     <style>
         @keyframes slideInFromLeft {
             0% {
@@ -47,51 +79,9 @@
         .mp-hero-content h4 {
             animation: slideInFromTop 0.5s ease-in-out;
         }
-    </style>
-
-
-    <noscript>
-        <style>
-            img.lazyload {
+        img.lazyload {
                 display: none
-            }
-        </style>
-    </noscript>
-    <meta name="robots" content="index, follow">
-    <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
-    <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
-    <title>Said Seghrouchni Idrissi</title>
-    <meta property="og:title" content="lightGallery">
-    <meta property="og:description"
-        content="A lightweight, modular, JavaScript image and video lightbox gallery plugin. Available for React.js, Vue.js, Angular, and TypeScript.">
-    <meta property="og:type" content="website">
-    <meta property="og:updated_time" content="2023-07-20T17:03:47+05:30">
-    <meta property="og:site_name" content="lightGallery">
-    <meta property="article:publisher" content="https://www.facebook.com/sachinchoolur">
-    <meta property="article:author" content="https://www.facebook.com/sachinchoolur">
-    <meta property="og:locale" content="en_US">
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="" name="keywords">
-    <meta content="" name="description">
-
-    <link rel="alternate" type="application/rss+xml" href="https://www.lightgalleryjs.com/index.xml">
-    <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script>
-    <script type="text/javascript" async=""
-        src="https://www.googletagmanager.com/gtag/js?id=G-960P19JL1K&amp;l=dataLayer&amp;cx=c"></script>
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","url":"https:\/\/www.lightgalleryjs.com\/","name":"lightGallery","logo":"https:\/\/www.lightgalleryjs.com\/logo-hyas.png","sameAs":["https:\/\/twitter.com\/SachinNeravath","https:\/\/www.linkedin.com\/in\/sachinchoolur\/","https:\/\/github.com\/sachinchoolur"]}</script>
-    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https:\/\/www.lightgalleryjs.com\/"}]}</script>
-    <meta name="ahrefs-site-verification" content="96bd744dcfe6c078a1994c8d9e0e0ca6a5cf16004f63946a0cd349ca937c1b24">
-    <meta name="theme-color" content="#fff">
-    <link rel="apple-touch-icon" sizes="180x180" href="https://www.lightgalleryjs.com/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href='img/SAID-logo.png'>
-    <link rel="manifest" href="https://www.lightgalleryjs.com/site.webmanifest">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.10.0/css/lightgallery.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-    <style>
+        }
         @-webkit-keyframes spin {
             0% {
                 -webkit-transform: rotate(0deg);
@@ -179,8 +169,6 @@
                 transform: rotate(360deg);
             }
         }
-    </style>
-    <style>
         .navbar {
             background-color: transparent;
             transition: background-color 0.3s ease;
@@ -390,14 +378,11 @@
     </style>
 
 
-
-    <!-- Favicon -->
-    <link href="img/favicon.ico" rel="icon">
     {{-- Google fonts --}}
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
-
-
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+        <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
     <!-- Favicon -->
     <link href="img/favicon.ico" rel="icon">
 
@@ -406,16 +391,13 @@
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&family=Roboto:wght@500;700&display=swap"
-        rel="stylesheet">
 
     <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
     <!-- Libraries Stylesheet -->
-    <link href="/assets/lib/animate/animate.min.css" rel="stylesheet">
-    <link href="/assets/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    {{-- <link href="/assets/lib/animate/animate.min.css" rel="stylesheet">
+    <link href="/assets/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet"> --}}
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
@@ -434,7 +416,7 @@
     {{-- Custem css --}}
     <link rel="stylesheet" href="/assets2/css/style-prefix.css">
     <link rel="shortcut icon" href="/assets2/images/logo/mery.png" type="image/x-icon">
-
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 </head>
 
 
@@ -478,7 +460,9 @@
     <!-- Template Javascript -->
     <script src="/assets/js/main.js"></script>
 
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
+</script>
 
     <script src="/assets2/js/script.js"></script>
 
@@ -584,9 +568,6 @@
         }
     </script>
 
-
-    <script id="__webwhizSdk__" src="https://widget.webwhiz.ai/webwhiz-sdk.js" chatbotid="6427de1eb464389fa02a8e61">
-    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/rellax/1.12.1/rellax.min.js"></script>
     <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
     <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
@@ -686,7 +667,7 @@
         lightGallery(document.getElementById('my-lightgallery'));
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.2/min/dropzone.min.js"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 

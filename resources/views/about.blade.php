@@ -1,13 +1,13 @@
 @extends('layout.layout')
 <style>
-    p{
+    p {
         color: black;
         letter-spacing: 1px;
-        font-weight :500;
+        font-weight: 500;
     }
 </style>
 @section('content')
-    <div style="margin-top: 120px"  id="my-lightgallery">
+    <div style="margin-top: 120px" id="my-lightgallery">
         <!-- Hero Start -->
         <div class="container-fluid py-6 my-6 mt-0" style="">
             <div class="container text-center animated bounceInDown">
@@ -22,154 +22,145 @@
 
 
         <!-- About Satrt -->
-
-        <div class="container-fluid py-6">
-            <div class="container">
-                <div class="row g-5 align-items-center">
-                    <div class="col-lg-5 wow bounceInUp" data-wow-delay="0.1s"
-                        style="visibility: visible; animation-delay: 0.1s; animation-name: bounceInUp;">
-                        <a data-lg-size="480-480-480, 800-800-800, 1400-1400" data-pinterest-text="Pin it3"
-                            data-tweet-text="lightGallery" class="gallery-item" data-src="img/said_13.jpeg">
-                            <img class="img-fluid rounded" data-wow-duration="0.5s" data-wow-delay="0.2s"
-                                src="img/said_13.jpeg" alt="">
-                        </a>
+        @foreach ($abouts as $about)
+            <div class="container-fluid py-6">
+                <div class="container m-3">
+                    <div class="row g-5 align-items-center">
+                        @if (!$about->is_owner)
+                            <div class="col-lg-4 wow bounceInUp {{ $loop->index % 2 == 0 ? '' : 'order-2' }}"
+                                data-wow-delay="0.1s"
+                                style="visibility: visible; animation-delay: 0.1s; animation-name: bounceInUp;">
+                                <a data-lg-size="480-480-480, 800-800-800, 1400-1400" data-pinterest-text="Pin it3"
+                                    data-tweet-text="lightGallery" class="gallery-item" data-src="{{ $about->image }}">
+                                    <img class="img-fluid rounded" data-wow-duration="0.5s" data-wow-delay="0.2s"
+                                        src="{{ $about->image }}" alt="" style="max-height: 500px">
+                                </a>
+                            @else
+                                <div class="col-lg-4 wow bounceInUp {{ $loop->index % 2 == 0 ? '' : 'order-2' }}"
+                                    data-wow-delay="0.1s"
+                                    style="visibility: visible; animation-delay: 0.1s; animation-name: bounceInUp;">
+                                    <a data-lg-size="480-480-480, 800-800-800, 1400-1400" data-pinterest-text="Pin it3"
+                                        data-tweet-text="lightGallery" class="gallery-item" data-src="{{ $about->image }}">
+                                        <img class="img-fluid rounded" data-wow-duration="0.5s" data-wow-delay="0.2s"
+                                            src="{{ $about->image }}" alt="">
+                                    </a>
+                                    <div class="col-lg-10">
+                                        <div class="team-content text-center py-3 bg-dark rounded-bottom">
+                                            <h4 class="text-primary">{{ $about->name }}</h4>
+                                            <p class="text-white mb-0">Project Owner</p>
+                                        </div>
+                                    </div>
+                        @endif
                     </div>
-                    <div class="col-lg-7 wow bounceInUp" data-wow-delay="0.3s"
+                    <div class="col-lg-8 wow bounceInUp" data-wow-delay="0.3s"
                         style="visibility: visible; animation-delay: 0.3s; animation-name: bounceInUp;">
-                        <small
-                            class="d-inline-block fw-bold text-dark text-uppercase bg-light border rounded-pill px-4 py-1 mb-3">
-                            About Us
-                        </small>
-                        <p class="mb-4">Welcome to our project dedicated to preserving and sharing the life story of
-                            <span>Said Seghrouchni Idrissi.</span> <br>
-                            Said Seghrouchni Idrissi Born on <span> October 6, 1962, in Morocco</span> and departed on
-                            <span> July 16, 2021, In USA </span>
-                            Said's journey through life was a remarkable one that bridged two worlds
-                            - Morocco and the United States.
+                        @if (auth()->user()?->role)
+                            <small
+                                class="d-inline-block fw-bold text-dark text-uppercase bg-light border rounded-pill px-4 py-1 mb-3"
+                                type="button" data-bs-toggle="modal" data-bs-target="#editModal-{{ $about->id }}">
+                                <i class="bx bx-pencil m-1" style="color: black"></i>
+                                Update
+                                </a>
+                            </small>
+                        @endif
+
+                        <p class="mb-4">{!! $about->description !!}
                         </p>
                     </div>
                 </div>
             </div>
-        </div>
-
-        <!-- About End -->
-        <br> <br>
-
-        <div class="container-fluid py-6">
-            <div class="container">
-                <div class="row g-5 align-items-center">
-                    <div class="col-lg-8 wow bounceInUp" data-wow-delay="0.1s"
-                        style="visibility: visible; animation-delay: 0.1s; animation-name: bounceInUp;">
-                        <p class="mb-4">
-                            Said spent his childhood in Morocco, where he forged his earliest memories, traditions, and
-                            values. It was in this vibrant and culturally rich environment that he learned about the
-                            importance of family, community, and the enduring heritage of Morocco.
-                            <br>
-                            <br>
-                            Later in life, Said embarked on a new chapter, relocating to the United States. In this diverse
-                            and dynamic country, he embraced new opportunities, forged connections, and contributed to the
-                            rich tapestry of American society. His story serves as a testament to the power of cultural
-                            exchange and the ability to bridge cultures and generations.
-                        </p>
-                    </div>
-                    <div class="col-lg-4 wow bounceInUp" data-wow-delay="0.3s"
-                        style="visibility: visible; animation-delay: 0.3s; animation-name: bounceInUp;">
-                        <a data-lg-size="480-480-480, 800-800-800, 1400-1400" data-pinterest-text="Pin it3"
-                            data-tweet-text="lightGallery" class="gallery-item" data-src="img/said_14.jpeg">
-                            <img class="img-fluid rounded" data-wow-duration="0.5s" data-wow-delay="0.2s"
-                                src="img/said_14.jpeg" alt="">
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="container-fluid py-6">
-            <div class="container">
-                <div class="row g-5 align-items-center">
-                    <div class="col-lg-5 wow bounceInUp" data-wow-delay="0.1s"
-                        style="visibility: visible; animation-delay: 0.1s; animation-name: bounceInUp;">
-                        <a data-lg-size="480-480-480, 800-800-800, 1400-1400" data-pinterest-text="Pin it3"
-                            data-tweet-text="lightGallery" class="gallery-item" data-src="img/mortSaid.jpeg">
-                            <img class="img-fluid rounded" data-wow-duration="0.5s" data-wow-delay="0.2s"
-                                src="img/mortSaid.jpeg" alt="">
-                        </a>
-                    </div>
-                    <div class="col-lg-7 wow bounceInUp" data-wow-delay="0.3s"
-                        style="visibility: visible; animation-delay: 0.3s; animation-name: bounceInUp;">
-                        <p class="mb-4 me-5">
-                            Tragically, Said's journey reached its conclusion in July 2021, and he was laid to rest in
-                            Morocco, next to his father. His legacy lives on through this project, a digital memorial that
-                            honors his life and allows others to explore the rich tapestry of his experiences.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Team Start -->
-        <div class="container-fluid team py-6">
-            <div class="container">
-                <div class="text-center wow bounceInUp" data-wow-delay="0.1s"
-                    style="visibility: visible; animation-delay: 0.1s; animation-name: bounceInUp;">
-                    <small
-                        class="d-inline-block fw-bold text-dark text-uppercase bg-light border border-primary rounded-pill px-4 py-1 mb-3">Why
-                        We Share</small>
-                </div>
-                <div class="row g-4">
-                    <div class="col-lg-9 col-md-6 wow bounceInUp" data-wow-delay="0.1s"
-                        style="visibility: visible; animation-delay: 0.1s; animation-name: bounceInUp;">
-                        <div class="team-item rounded">
-                            <p class="mt-5 me-5">
-                                the seconde principle of zak is to provide a platform that goes beyond Said's personal
-                                story. This website is designed for those curious about history and eager to learn more. It
-                                offers a personalized glimpse into Moroccan culture, business, and the broader spectrum of
-                                life through the lens of our family's history. We believe that other families may be
-                                inspired to create their own digital family history archives, ensuring that their stories
-                                endure for eternity.
-                                <br> <br>
-                                Join us on this journey through Said Seghrouchni Idrissi's life and explore the diverse and
-                                captivating narrative that transcends borders, cultures, and generations. Experience the
-                                power of storytelling and the enduring legacy of a life well-lived.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 wow bounceInUp" data-wow-delay="0.1s"
-                        style="visibility: visible; animation-delay: 0.1s; animation-name: bounceInUp;">
-                        <div class="team-item rounded">
-                            <a data-lg-size="480-480-480, 800-800-800, 1400-1400" data-pinterest-text="Pin it3"
-                                data-tweet-text="lightGallery" class="gallery-item" data-src="img/zak.png">
-                                <img class="img-fluid rounded" data-wow-duration="0.5s" data-wow-delay="0.2s"
-                                    src="img/zak.png" alt="">
-                            </a>
-                            <div class="team-content text-center py-3 bg-dark rounded-bottom">
-                                <h4 class="text-primary">Zak Seghrouchni Idrissi</h4>
-                                <p class="text-white mb-0">Project Owner</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Team End -->
-
-        <!-- Back to Top -->
-        <a href="#" class="btn btn-md-square btn-primary rounded-circle back-to-top" style="display: none;"><i
-                class="fa fa-arrow-up"></i></a>
-
-
-        <!-- JavaScript Libraries -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="lib/wow/wow.min.js"></script>
-        <script src="lib/easing/easing.min.js"></script>
-        <script src="lib/waypoints/waypoints.min.js"></script>
-        <script src="lib/counterup/counterup.min.js"></script>
-        <script src="lib/lightbox/js/lightbox.min.js"></script>
-        <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-
-        <!-- Template Javascript -->
-        <script src="js/main.js"></script>
     </div>
+    @endforeach
+
+    <!-- About End -->
+    <br> <br>
+
+    {{-- Modal Update  --}}
+    @foreach ($abouts as $about)
+    <div class="modal fade" id="editModal-{{ $about->id }}" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <form action="{{ route('about.update', $about->id) }}" method="POST" enctype="multipart/form-data">
+            @csrf
+            @method('PUT')
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="editModalLabel">Edit Photo</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                {{-- Form fields here --}}
+                <div class="mb-3">
+                  <label for="description-{{ $about->id }}" class="form-label">Description</label>
+                  <textarea class="form-control" id="description-{{ $about->id }}" name="description">{!! $about->description !!}</textarea>
+                </div>
+                <div class="mb-3">
+                  <label for="image-{{ $about->id }}" class="form-label">Photo</label>
+                  <input type="file" class="form-control" id="image-{{ $about->id }}" name="image" accept="image/*" onchange="previewImage({{ $about->id }})">
+                  @error('image')
+                    <span class="text-danger">{{ $message }}</span> <br>
+                  @enderror
+                </div>
+              </div>
+               <img id="imagePreview-{{ $about->id }}" src="{{ asset($about->image) }}" alt="Preview" style="max-width: 100%; margin: 10px;">
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Update Photo</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+
+@endforeach
+
+            </div>
+    </div>
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-md-square btn-primary rounded-circle back-to-top" style="display: none;"><i
+            class="fa fa-arrow-up"></i>
+    </a>
 @endsection
+
+@section('script')
+    <!-- JavaScript Libraries -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+    <script src="lib/lightbox/js/lightbox.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+
+<script>
+function previewImage(aboutId) {
+  var fileInput = document.getElementById('image-' + aboutId);
+  var imagePreview = document.getElementById('imagePreview-' + aboutId);
+  var galleryItem = document.querySelector('.gallery-item[about-id="' + aboutId + '"]');
+
+  if (fileInput.files && fileInput.files[0]) {
+    var reader = new FileReader();
+
+    reader.onload = function(e) {
+      imagePreview.src = e.target.result;
+      galleryItem.dataset.src = e.target.result;
+
+      // Update the database with the new image
+      var form = document.getElementById('about-update-form-' + aboutId);
+      var image = form.querySelector('input[name="image"]');
+      image.value = e.target.result;
+    };
+
+    reader.readAsDataURL(fileInput.files[0]);
+  } else {
+    imagePreview.style.display = 'none';
+  }
+}
+
+</script>
+@endsection
+

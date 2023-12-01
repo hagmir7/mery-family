@@ -1,179 +1,185 @@
  <!DOCTYPE html>
-  <!-- Coding by CodingLab | www.codinglabweb.com -->
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title> Dashoboard</title>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <!-- Coding by CodingLab | www.codinglabweb.com -->
+ <html lang="en">
 
-    <!----======== CSS ======== -->
-    <link rel="stylesheet" href="/style.css">
+ <head>
+     <meta charset="UTF-8">
+     <title> Dashoboard</title>
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+     <!----======== CSS ======== -->
+     <link rel="stylesheet" href="/style.css">
 
-    <!----===== Boxicons CSS ===== -->
-    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
-    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10.16.6/dist/sweetalert2.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.16.6/dist/sweetalert2.all.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-    <link rel="shortcut icon" href="/assets2/images/logo/mery.png" type="image/x-icon">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+     <!----===== Boxicons CSS ===== -->
+     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
 
-    {{-- laravel csrf token --}}
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-    <!--<title>Dashboard Sidebar Menu</title>-->
-</head>
-<body class="bg-light">
-    <nav class="sidebar ">
-        <header>
-            <div class="image-text">
-                <span class="image">
-                    <!--<img src="logo.png" alt="">-->
-                </span>
-                <a  href="{{ route('dashboard') }}" style="text-decoration: none;">
-                <div class="text logo-text">
-                    <span class="name" ><img src="{{ asset('img/SAID-logo.png') }} " alt="" style="width: 80px; height: 80px; margin-top:-1px"></span>
-                </div>
-            </div>
-          </a>
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10.16.6/dist/sweetalert2.min.css">
+     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.16.6/dist/sweetalert2.all.min.js"></script>
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+         integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
 
-            <i class='bx bx-chevron-right toggle'></i>
-        </header>
+     {{-- laravel csrf token --}}
+     <meta name="csrf-token" content="{{ csrf_token() }}">
+     <!--<title>Dashboard Sidebar Menu</title>-->
+ </head>
 
-        <div class="menu-bar">
-            <div class="menu">
+ <body class="bg-light">
+     <nav class="sidebar ">
+         <header>
+             <div class="image-text">
+                 <span class="image">
+                     <!--<img src="logo.png" alt="">-->
+                 </span>
+                 <a href="{{ route('dashboard') }}" style="text-decoration: none;">
+                     <div class="text logo-text">
+                         <span class="name"><img src="{{ asset('img/SAID-logo.png') }} " alt=""
+                                 style="width: 80px; height: 80px; margin-top:-1px"></span>
+                     </div>
+             </div>
+             </a>
 
-                <li class="search-box">
-                    <i class='bx bx-search icon'></i>
-                    <input type="text" placeholder="Search..." readonly>
-                </li>
+             <i class='bx bx-chevron-right toggle'></i>
+         </header>
 
-                <ul class="menu-links">
-                    <li class="nav-link">
-                        <a href="{{ route('dashboard') }}">
-                            <i class="bx bx-home icon" style="color: black;"></i>
-                            <span class="text nav-text"> Dashboard</span>
-                        </a>
-                    </li>
+         <div class="menu-bar">
+             <div class="menu">
 
-                    {{-- <li class="nav-link">
+                 <li class="search-box">
+                     <i class='bx bx-search icon'></i>
+                     <input type="text" placeholder="Search..." readonly>
+                 </li>
+
+                 <ul class="menu-links">
+                     <li class="nav-link">
+                         <a href="{{ route('dashboard') }}">
+                             <i class="bx bx-home icon" style="color: black;"></i>
+                             <span class="text nav-text"> Dashboard</span>
+                         </a>
+                     </li>
+
+                     {{-- <li class="nav-link">
                         <a href="{{ route("product.list.admin") }}">
                           <i class='bx bx-list-plus icon'></i>
                             <span class="text nav-text">Produits</span>
                         </a>
                     </li> --}}
 
-                    <li class="nav-link">
-                        <a href="{{ route("gallery.list.admin") }}">
-                            <i class="fa-regular fa-images fa-xl icon" style="color: black;"></i>
-                            <span class="text nav-text">Gallery</span>
-                        </a>
-                    </li>
+                     <li class="nav-link">
+                         <a href="{{ route('gallery.list.admin') }}">
+                             <i class="fa-regular fa-images fa-xl icon" style="color: black;"></i>
+                             <span class="text nav-text">Gallery</span>
+                         </a>
+                     </li>
+                     @if (auth()->user()->role)
+                         <li class="nav-link">
+                             <a href="{{ route('user.list') }}">
+                                 <i class='bx bx-user icon' style="color: black"></i>
+                                 <span class="text nav-text">User</span>
+                             </a>
+                         </li>
+                         <li class="nav-link">
+                             <a href="{{ route('contact.list') }}">
+                                 <i class='bx bx-chat icon' style="color: black"></i>
+                                 <span class="text nav-text">Contacts</span>
+                             </a>
+                         </li>
+                     @endif
+                 </ul>
+             </div>
 
-                    <li class="nav-link">
-                        <a href="{{ route('user.list') }}">
-                          <i class='bx bx-user icon' style="color: black"></i>
-                            <span class="text nav-text">User</span>
-                        </a>
-                    </li>
-                    <li class="nav-link">
-                        <a href="{{ route('contact.list') }}">
-                          <i class='bx bx-chat icon' style="color: black"></i>
-                            <span class="text nav-text">Contacts</span>
-                        </a>
-                    </li>
+             <div class="bottom-content">
+                 <li class="" style="margin-top: -80px">
+                     <a href="{{ route('logout') }}">
+                         <i class='bx bx-log-out icon' style="color: black"></i>
+                         <span class="text nav-text">Se déconnecter</span>
+                     </a>
+                 </li>
 
-                </ul>
-            </div>
+             </div>
+         </div>
 
-            <div class="bottom-content">
-                <li class=""  style="margin-top: -80px">
-                    <a href="{{ route('logout') }}">
-                        <i class='bx bx-log-out icon' style="color: black" ></i>
-                        <span class="text nav-text">Se déconnecter</span>
-                    </a>
-                </li>
+     </nav>
 
-            </div>
-        </div>
+     <section class="home">
+         <!-- Page Content  -->
+         <div id="content" class="p-4 p-md-5 pt-5">
+             @yield('content')
+         </div>
+     </section>
 
-    </nav>
-
-    <section class="home">
-          <!-- Page Content  -->
-  <div id="content" class="p-4 p-md-5 pt-5">
-    @yield('content')
-</div>
-    </section>
-
-    <script>
-        const body = document.querySelector('body'),
-      sidebar = body.querySelector('nav'),
-      toggle = body.querySelector(".toggle"),
-      searchBtn = body.querySelector(".search-box"),
-      modeSwitch = body.querySelector(".toggle-switch"),
-      modeText = body.querySelector(".mode-text");
-
-
-toggle.addEventListener("click" , () =>{
-    sidebar.classList.toggle("close");
-})
-
-searchBtn.addEventListener("click" , () =>{
-    sidebar.classList.remove("close");
-})
-
-modeSwitch.addEventListener("click" , () =>{
-    body.classList.toggle("dark");
-
-    if(body.classList.contains("dark")){
-        modeText.innerText = "Light mode";
-    }else{
-        modeText.innerText = "Dark mode";
-
-    }
-});
-</script>
+     <script>
+         const body = document.querySelector('body'),
+             sidebar = body.querySelector('nav'),
+             toggle = body.querySelector(".toggle"),
+             searchBtn = body.querySelector(".search-box"),
+             modeSwitch = body.querySelector(".toggle-switch"),
+             modeText = body.querySelector(".mode-text");
 
 
+         toggle.addEventListener("click", () => {
+             sidebar.classList.toggle("close");
+         })
+
+         searchBtn.addEventListener("click", () => {
+             sidebar.classList.remove("close");
+         })
+
+         modeSwitch.addEventListener("click", () => {
+             body.classList.toggle("dark");
+
+             if (body.classList.contains("dark")) {
+                 modeText.innerText = "Light mode";
+             } else {
+                 modeText.innerText = "Dark mode";
+
+             }
+         });
+     </script>
 
 
 
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
-
-<script src="/dash-assets/js/jquery.min.js"></script>
-<script src="/dash-assets/js/popper.js"></script>
-<script src="/dash-assets/js/bootstrap.min.js"></script>
-<script src="/dash-assets/js/main.js"></script>
-<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-
-@if(session()->has('message'))
-<script>
-    Swal.fire({
-        title: 'Succès!',
-        text: '{{ session()->get('message') }}',
-        icon: 'success',
-        confirmButtonText: 'OK'
-    })
-</script>
-@endif
 
 
-<script>
-    $.ajaxSetup({
-      headers: {
-        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-      }
-    });
-</script>
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
+     </script>
+
+     <script src="/dash-assets/js/jquery.min.js"></script>
+     <script src="/dash-assets/js/popper.js"></script>
+     <script src="/dash-assets/js/bootstrap.min.js"></script>
+     <script src="/dash-assets/js/main.js"></script>
+     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+     @if (session()->has('message'))
+         <script>
+             Swal.fire({
+                 title: 'Succès!',
+                 text: '{{ session()->get('message') }}',
+                 icon: 'success',
+                 confirmButtonText: 'OK'
+             })
+         </script>
+     @endif
 
 
-@yield('script')
+     <script>
+         $.ajaxSetup({
+             headers: {
+                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+             }
+         });
+     </script>
 
-</body>
-</html>
+
+     @yield('script')
+
+ </body>
+
+ </html>

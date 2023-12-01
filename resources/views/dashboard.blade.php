@@ -60,7 +60,7 @@
 
                 <div class="d-flex align-items-center">
                   <div class="card-icon order rounded-circle d-flex align-items-center justify-content-center">
-                    
+
                   </div>
                   <div class="ps-3">
                     <h6 class="h4">{{ $orders->count() }}</h6>
@@ -70,47 +70,48 @@
 
             </div>
           </div><!-- End Sales Card --> --}}
+            @if (auth()->user()->role)
+                <div class="col-xxl-4 col-md-6 mt-2">
+                    <div class="card info-card sales-card border-0 shadow-sm">
+                        <div class="card-body">
+                            <a href="{{ route('contact.list') }}" style="text-decoration: none ; color:black">
+                                <h5 class="card-title">Messages</h5>
+                            </a>
 
-            <div class="col-xxl-4 col-md-6 mt-2">
-                <div class="card info-card sales-card border-0 shadow-sm">
-                    <div class="card-body">
-                        <a href="{{ route('contact.list') }}" style="text-decoration: none ; color:black">
-                            <h5 class="card-title">Messages</h5>
-                        </a>
-
-                        <div class="d-flex align-items-center">
-                            <div class="card-icon message rounded-circle d-flex align-items-center justify-content-center">
-                                <i class="bi bi-chat h2"></i>
-                            </div>
-                            <div class="ps-3">
-                                <h6 class="h4">{{ $contacts->count() }}</h6>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div><!-- End Sales Card -->
-
-            <div class="col-xxl-4 col-md-6 mt-2">
-                <div class="card info-card sales-card border-0 shadow-sm">
-                    <div class="card-body">
-                        <a href="{{ route('user.list') }}" style="text-decoration: none ; color:black">
-                            <h5 class="card-title">User</h5>
-                        </a>
-
-                        <div class="d-flex align-items-center">
-                            <div class="card-icon user rounded-circle d-flex align-items-center justify-content-center">
-                                <i class="bi bi-person h2"></i>
-                            </div>
-                            <div class="ps-3">
-                                <h6 class="h4">{{ $users }}</h6>
+                            <div class="d-flex align-items-center">
+                                <div
+                                    class="card-icon message rounded-circle d-flex align-items-center justify-content-center">
+                                    <i class="bi bi-chat h2"></i>
+                                </div>
+                                <div class="ps-3">
+                                    <h6 class="h4">{{ $contacts->count() }}</h6>
+                                </div>
                             </div>
                         </div>
+
                     </div>
+                </div><!-- End Sales Card -->
 
-                </div>
-            </div><!-- End Sales Card -->
+                <div class="col-xxl-4 col-md-6 mt-2">
+                    <div class="card info-card sales-card border-0 shadow-sm">
+                        <div class="card-body">
+                            <a href="{{ route('user.list') }}" style="text-decoration: none ; color:black">
+                                <h5 class="card-title">User</h5>
+                            </a>
 
+                            <div class="d-flex align-items-center">
+                                <div class="card-icon user rounded-circle d-flex align-items-center justify-content-center">
+                                    <i class="bi bi-person h2"></i>
+                                </div>
+                                <div class="ps-3">
+                                    <h6 class="h4">{{ $users }}</h6>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div><!-- End Sales Card -->
+            @endif
 
 
             <div class="col-12 mt-4">
@@ -139,6 +140,7 @@
                                                 name: 'Photos',
                                                 data: respons.medias.map(item => item[1])
                                             }, {
+                                                
                                                 name: 'User',
                                                 data: respons.users.map(item => item[1])
                                             }],
