@@ -85,7 +85,7 @@
                     <a class="nav-link" href="{{ route('storie.index') }}">Stories</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/license/">Family History</a>
+                    <a class="nav-link" href="{{route('familyTree.index')}}">Family History</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/license/">Quotes</a>

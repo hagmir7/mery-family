@@ -22,8 +22,10 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CartDetailController;
+use App\Http\Controllers\FamilyTreeController;
 use App\Http\Controllers\ProductImagesController;
 use App\Http\Controllers\StoriesController;
+use App\Models\FamilyTree;
 use App\Models\Media;
 
 /*
@@ -64,7 +66,7 @@ Route::get('register', [UserController::class, 'register'])->name('register');
 
 Route::get('/chart', [ChartController::class, 'viewsChart'])->name('product.chart');
 
-
+Route::resource('/familyTree',FamilyTreeController::class);
 
 
 

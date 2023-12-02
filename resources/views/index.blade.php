@@ -176,6 +176,7 @@
 
 @section('content')
     <div class="mp-hero-section hero-section section title" style="margin-top: -220px">
+        
         <div class="container">
             <div class="row">
                 <div class="col-xs-12 col-sm-6">
@@ -284,5 +285,10 @@
 
             </div>
         </div>
+
+        <div class="mb-5">
+            @include('searshFamily')
+        </div>
+      
     </div>
 @endsection
