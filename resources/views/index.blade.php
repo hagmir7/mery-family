@@ -267,7 +267,7 @@
 
                                     <a data-lg-size="480-480-480, 800-800-800, 1400-1400" data-pinterest-text="Pin it2"
                                         data-tweet-text="lightGallery slide  2" class="gallery-item"
-                                        data-src="img/said_3.jpeg">
+                                        data-src="img/said_5.jpeg">
                                         <img class="img-responsive" src="img/said_5.jpeg">
                                     </a>
                                 </div>

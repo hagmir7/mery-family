@@ -178,7 +178,7 @@
             font-size: 24px;
         }
 
- 
+
     </style>
     <div class="body mb-5">
         <div class="body genealogy-body genealogy-scroll" >
@@ -197,11 +197,11 @@
                                 </div>
 
                                 <!-- Ajout du cœur au-dessus de la ligne horizontale -->
-                              
+
                                     <div class="member-image">
                                      <hr>
                                     </div>
-                      
+
 
                                 <div class="member-view-box">
                                     <div class="member-image">
@@ -453,6 +453,34 @@
                                         </div>
                                     </div>
                                 </a>
+                                <ul class="mt-5">
+                                    <li>
+                                        <a href="javascript:void(0);">
+                                            <div class="member-view-box">
+                                                <div class="member-image">
+                                                    <img src="https://image.flaticon.com/icons/svg/145/145867.svg"
+                                                        alt="Member">
+                                                    <div class="member-details">
+                                                        <h5>Habiba</h5>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);">
+                                            <div class="member-view-box">
+                                                <div class="member-image">
+                                                    <img src="https://image.flaticon.com/icons/svg/145/145867.svg"
+                                                        alt="Member">
+                                                    <div class="member-details">
+                                                        <h5>Radouane</h5>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
                             </li>
                             <li>
                                 <a href="javascript:void(0);">
@@ -465,6 +493,47 @@
                                         </div>
                                     </div>
                                 </a>
+                                <ul class="mt-5">
+                                    <li>
+                                        <a href="javascript:void(0);">
+                                            <div class="member-view-box">
+                                                <div class="member-image">
+                                                    <img src="https://image.flaticon.com/icons/svg/145/145867.svg"
+                                                        alt="Member">
+                                                    <div class="member-details">
+                                                        <h5>Kaoutar</h5>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);">
+                                            <div class="member-view-box">
+                                                <div class="member-image">
+                                                    <img src="https://image.flaticon.com/icons/svg/145/145867.svg"
+                                                        alt="Member">
+                                                    <div class="member-details">
+                                                        <h5>Rali</h5>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);">
+                                            <div class="member-view-box">
+                                                <div class="member-image">
+                                                    <img src="https://image.flaticon.com/icons/svg/145/145867.svg"
+                                                        alt="Member">
+                                                    <div class="member-details">
+                                                        <h5>Ghita</h5>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
                             </li>
                             <li>
                                 <a href="javascript:void(0);">
@@ -477,6 +546,47 @@
                                         </div>
                                     </div>
                                 </a>
+                                <ul class="mt-5">
+                                    <li>
+                                        <a href="javascript:void(0);">
+                                            <div class="member-view-box">
+                                                <div class="member-image">
+                                                    <img src="https://image.flaticon.com/icons/svg/145/145867.svg"
+                                                        alt="Member">
+                                                    <div class="member-details">
+                                                        <h5>Sarah</h5>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);">
+                                            <div class="member-view-box">
+                                                <div class="member-image">
+                                                    <img src="https://image.flaticon.com/icons/svg/145/145867.svg"
+                                                        alt="Member">
+                                                    <div class="member-details">
+                                                        <h5>Ali</h5>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);">
+                                            <div class="member-view-box">
+                                                <div class="member-image">
+                                                    <img src="https://image.flaticon.com/icons/svg/145/145867.svg"
+                                                        alt="Member">
+                                                    <div class="member-details">
+                                                        <h5>Simo</h5>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
                             </li>
                             <li>
                                 <a href="javascript:void(0);">
@@ -489,6 +599,47 @@
                                         </div>
                                     </div>
                                 </a>
+                                <ul class="mt-5">
+                                    <li>
+                                        <a href="javascript:void(0);">
+                                            <div class="member-view-box">
+                                                <div class="member-image">
+                                                    <img src="https://image.flaticon.com/icons/svg/145/145867.svg"
+                                                        alt="Member">
+                                                    <div class="member-details">
+                                                        <h5>Michel</h5>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);">
+                                            <div class="member-view-box">
+                                                <div class="member-image">
+                                                    <img src="https://image.flaticon.com/icons/svg/145/145867.svg"
+                                                        alt="Member">
+                                                    <div class="member-details">
+                                                        <h5>Zak</h5>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);">
+                                            <div class="member-view-box">
+                                                <div class="member-image">
+                                                    <img src="https://image.flaticon.com/icons/svg/145/145867.svg"
+                                                        alt="Member">
+                                                    <div class="member-details">
+                                                        <h5>Sanae</h5>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
                             </li>
                             <li>
                                 <a href="javascript:void(0);">
@@ -501,6 +652,47 @@
                                         </div>
                                     </div>
                                 </a>
+                                <ul class="mt-5">
+                                    <li>
+                                        <a href="javascript:void(0);">
+                                            <div class="member-view-box">
+                                                <div class="member-image">
+                                                    <img src="img/ahmed.jpeg"
+                                                        alt="Member">
+                                                    <div class="member-details">
+                                                        <h5>Ahmed</h5>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);">
+                                            <div class="member-view-box">
+                                                <div class=" member-image">
+                                                    <img src="img/meryem.jpeg"
+                                                        alt="Member">
+                                                    <div class="member-details">
+                                                        <h5>Meryem</h5>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);">
+                                            <div class="member-view-box">
+                                                <div class="member-image">
+                                                    <img src="img/yassine.jpeg"
+                                                        alt="Member">
+                                                    <div class="member-details">
+                                                        <h5>Yassine</h5>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
                             </li>
                             <li>
                                 <a href="javascript:void(0);">
@@ -513,6 +705,34 @@
                                         </div>
                                     </div>
                                 </a>
+                                <ul class="mt-5">
+                                    <li>
+                                        <a href="javascript:void(0);">
+                                            <div class="member-view-box">
+                                                <div class="member-image">
+                                                    <img src="https://image.flaticon.com/icons/svg/145/145867.svg"
+                                                        alt="Member">
+                                                    <div class="member-details">
+                                                        <h5>Zakaria</h5>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);">
+                                            <div class="member-view-box">
+                                                <div class="member-image">
+                                                    <img src="https://image.flaticon.com/icons/svg/145/145867.svg"
+                                                        alt="Member">
+                                                    <div class="member-details">
+                                                        <h5>Mehdi</h5>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
                             </li>
                             <li>
                                 <a href="javascript:void(0);">
@@ -525,6 +745,34 @@
                                         </div>
                                     </div>
                                 </a>
+                                <ul class="mt-5">
+                                    <li>
+                                        <a href="javascript:void(0);">
+                                            <div class="member-view-box">
+                                                <div class="member-image">
+                                                    <img src="https://image.flaticon.com/icons/svg/145/145867.svg"
+                                                        alt="Member">
+                                                    <div class="member-details">
+                                                        <h5>Karim</h5>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);">
+                                            <div class="member-view-box">
+                                                <div class="member-image">
+                                                    <img src="https://image.flaticon.com/icons/svg/145/145867.svg"
+                                                        alt="Member">
+                                                    <div class="member-details">
+                                                        <h5>Safae</h5>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
                             </li>
                             <li>
                                 <a href="javascript:void(0);">
@@ -537,6 +785,34 @@
                                         </div>
                                     </div>
                                 </a>
+                                <ul class="mt-5">
+                                    <li>
+                                        <a href="javascript:void(0);">
+                                            <div class="member-view-box">
+                                                <div class="member-image">
+                                                    <img src="https://image.flaticon.com/icons/svg/145/145867.svg"
+                                                        alt="Member">
+                                                    <div class="member-details">
+                                                        <h5>Fatima Zohra</h5>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);">
+                                            <div class="member-view-box">
+                                                <div class="member-image">
+                                                    <img src="https://image.flaticon.com/icons/svg/145/145867.svg"
+                                                        alt="Member">
+                                                    <div class="member-details">
+                                                        <h5>Youssef</h5>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
                             </li>
                             <li>
                                 <a href="javascript:void(0);">
@@ -549,6 +825,34 @@
                                         </div>
                                     </div>
                                 </a>
+                                <ul class="mt-5">
+                                    <li>
+                                        <a href="javascript:void(0);">
+                                            <div class="member-view-box">
+                                                <div class="member-image">
+                                                    <img src="https://image.flaticon.com/icons/svg/145/145867.svg"
+                                                        alt="Member">
+                                                    <div class="member-details">
+                                                        <h5>Bilal</h5>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);">
+                                            <div class="member-view-box">
+                                                <div class="member-image">
+                                                    <img src="https://image.flaticon.com/icons/svg/145/145867.svg"
+                                                        alt="Member">
+                                                    <div class="member-details">
+                                                        <h5>Yahya</h5>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
                             </li>
                         </ul>
                     </li>

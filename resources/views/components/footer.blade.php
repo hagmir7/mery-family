@@ -32,7 +32,7 @@
           </li>
 
           <li class="footer-nav-item">
-            <a href="{{ route('gallery.index') }}" class="footer-nav-link">Family history</a>
+            <a href="{{route('familyTree.index')}}" class="footer-nav-link">Family history</a>
           </li>
 
           <li class="footer-nav-item">

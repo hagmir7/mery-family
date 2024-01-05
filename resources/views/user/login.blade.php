@@ -12,7 +12,7 @@
                 <div class="google-btn">
                     <div class="google-icon-wrapper">
                         <img class="google-icon"
-                            src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" />
+                            src="https://fonts.gstatic.com/s/i/productlogos/googleg/v6/24px.svg"/>
                     </div>
                     <p class="btn-text"><b>Log in with Google</b></p>
 
@@ -29,7 +29,7 @@
                 <input type="email" name="email" id="email" value="{{ old('email') }}" class="form-control mt-2" placeholder="Email" style="width: 95%; margin-left: 15px">
                 <label for="password" style="margin-left: 15px">Password</label>
                 <input type="password" name="password" id="password" class="form-control mt-2" placeholder="Enter your password" style="width: 95%; margin-left: 15px">
-                <button class="btn btn-pay mt-4 w-100">Log In</button>
+                <button class="btn btn-primary mt-4 w-100">Log In</button>
                 <a href="{{ route('register') }}" class="btn btn-outline-primary mt-4 w-100">Create a new account</a>
             </form>
         </div>

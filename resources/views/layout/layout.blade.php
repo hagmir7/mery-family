@@ -187,29 +187,26 @@
         .google-btn {
             width: auto;
             height: 42px;
-            background-color: #4285f4;
             border-radius: 3px;
             box-shadow: 0 3px 4px 0 rgba(0, 0, 0, .25);
-            margin: 0 130px 0 130px;
 
         }
 
         .google-icon-wrapper {
             position: absolute;
-            margin-top: 1px;
-            margin-left: 1px;
             width: 40px;
-            height: 40px;
+            height: 42px;
             border-radius: 2px;
             background-color: #fff;
+            box-shadow: 0 3px 4px 0 rgba(0, 0, 0, .25);
         }
 
         .google-icon {
             position: absolute;
-            margin-top: 11px;
+            margin-top: 13px;
             margin-left: 11px;
-            width: 18px;
-            height: 18px;
+            width: 19px;
+            height: 19px;
         }
 
         .btn-text {

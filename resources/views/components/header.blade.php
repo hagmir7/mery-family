@@ -2,7 +2,7 @@
     /* Existing styles... */
 
     /* Mobile Styles */
-    @media only screen and (max-width: 768px) {
+    @media only screen and (max-width: 1000px) {
 
         /* Adjustments for smaller screens */
         #nav-header {
